@@ -8,14 +8,18 @@ const pageSections = [...document.querySelectorAll('main > section[id]')];
 const runningAnimations = new Set();
 let currentLanguage = 'en';
 let scrollFramePending = false;
+const panelAnimations = new WeakMap();
 
 function animateIn(element, variant = 'rise', delay = 0) {
+  const previous = panelAnimations.get(element);
+  if (previous) previous.cancel();
   if (reducedMotion.matches || typeof element.animate !== 'function') return;
   // Motion enhances already-readable content; no class ever hides the page.
   const frames = variant === 'unfold'
     ? [{opacity: 0, transform: 'translateY(22px) scale(.97)', clipPath: 'inset(4% 0 0 0 round 16px)'}, {opacity: 1, transform: 'none', clipPath: 'inset(0 0 0 0 round 16px)'}]
     : [{opacity: 0, transform: 'translateY(22px)'}, {opacity: 1, transform: 'none'}];
-  const animation = element.animate(frames, {duration: variant === 'unfold' ? 680 : 560, delay, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards'});
+  const animation = element.animate(frames, {duration: variant === 'unfold' ? 480 : 420, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards'});
+  panelAnimations.set(element, animation);
   runningAnimations.add(animation);
   animation.finished.then(() => runningAnimations.delete(animation)).catch(() => runningAnimations.delete(animation));
 }
@@ -44,7 +48,7 @@ function selectService(tab, focus = false) {
     button.tabIndex = selected ? 0 : -1;
     const panel = document.getElementById(button.getAttribute('aria-controls'));
     panel.hidden = !selected;
-    if (selected) animateIn(panel, 'unfold');
+    if (selected && !focus) animateIn(panel.querySelector('.service-detail'), 'rise');
   });
   if (focus) tab.focus();
   queueScrollUpdate();
@@ -56,6 +60,12 @@ function updateScrollState() {
   const distance = root.scrollHeight - root.clientHeight;
   const progress = distance > 0 ? Math.min(1, Math.max(0, window.scrollY / distance)) : 0;
   root.style.setProperty('--page-progress', String(progress));
+  const growth = document.querySelector('.growth-stages');
+  if (growth) {
+    const bounds = growth.getBoundingClientRect();
+    const progress = reducedMotion.matches ? 1 : Math.max(0, Math.min(1, (window.innerHeight - bounds.top) / (window.innerHeight * .65)));
+    growth.style.setProperty('--growth-progress', String(progress));
+  }
   const threshold = Math.min(window.innerHeight * .4, 260);
   let sectionId = '';
   pageSections.forEach(section => { if (section.getBoundingClientRect().top <= threshold) sectionId = section.id; });
@@ -96,7 +106,7 @@ window.addEventListener('resize', queueScrollUpdate);
 window.addEventListener('load', queueScrollUpdate);
 media.addEventListener('change', setOrientation);
 if ('ResizeObserver' in window) new ResizeObserver(queueScrollUpdate).observe(document.body);
-reducedMotion.addEventListener('change', event => { if (event.matches) runningAnimations.forEach(animation => animation.finish()); });
+reducedMotion.addEventListener('change', event => { if (event.matches) runningAnimations.forEach(animation => animation.finish()); queueScrollUpdate(); });
 document.addEventListener('focusin', () => runningAnimations.forEach(animation => {
   if (animation.effect?.target?.contains(document.activeElement)) animation.finish();
 }));
@@ -111,9 +121,28 @@ if ('IntersectionObserver' in window) {
       if (!entry.isIntersecting) return;
       const element = entry.target;
       element.dataset.revealed = 'true';
-      animateIn(element, element.dataset.reveal);
+      const siblings = [...element.parentElement.children].filter(child => child.hasAttribute('data-reveal'));
+      const delay = Math.min(siblings.indexOf(element), 2) * 70;
+      animateIn(element, element.dataset.reveal, Math.max(0, delay));
       reveals.unobserve(element);
     });
   }, {threshold: .12, rootMargin: '0px 0px -4% 0px'});
   document.querySelectorAll('[data-reveal]').forEach(element => reveals.observe(element));
+}
+
+// One quiet brand gesture, only while the hero is visible. Never a perpetual loop.
+const heroVisual = document.querySelector('.hero-visual');
+const precisePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+if (heroVisual) {
+  heroVisual.addEventListener('pointerenter', () => {
+    if (!precisePointer.matches || reducedMotion.matches) return;
+    const emblem = heroVisual.querySelector('.hero-emblem');
+    const animation = emblem.animate([
+      {transform:'translateY(0) rotate(0deg)'},
+      {transform:'translateY(-8px) rotate(-3deg)'},
+      {transform:'translateY(0) rotate(0deg)'}
+    ], {duration:1100,easing:'cubic-bezier(.22,1,.36,1)'});
+    runningAnimations.add(animation);
+    animation.finished.then(() => runningAnimations.delete(animation)).catch(() => runningAnimations.delete(animation));
+  });
 }
