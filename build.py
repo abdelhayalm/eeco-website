@@ -27,7 +27,7 @@ style=(SOURCE/'style.css').read_text()
 html=(SOURCE/'template.html').read_text().replace('__STYLE__',style).replace('__SCRIPT__',script)
 licenses='\n\n'.join(p.read_text() for p in sorted((SOURCE/'assets'/'fonts').glob('*OFL.txt')))
 html=html.replace('</head>','<!-- Third-party font licenses\n'+licenses.replace('--','—')+'\n-->\n</head>')
-html=html.replace('</head>','<noscript><style>.service-tabs,.menu-toggle,.language-switch{display:none!important}.service-panel[hidden]{display:grid!important}.service-panel{margin-bottom:20px}@media(max-width:760px){.main-nav{display:flex!important}}</style></noscript></head>')
+html=html.replace('</head>','<noscript><style>.service-tabs,.language-switch,.language-select{display:none!important}.service-panel[hidden]{display:grid!important}.service-panel{margin-bottom:20px}</style></noscript></head>')
 for key,value in assets.items():html=html.replace('{{'+key+'}}',value)
 assert not re.search(r'\{\{[a-z-]+\}\}',html),'Unresolved asset'
 assert '__COPY__' not in html

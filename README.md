@@ -9,7 +9,7 @@ A responsive, self-contained website in English, Brazilian Portuguese and Egypti
 - `source/template.html` — semantic markup with readable English fallback.
 - `source/style.css` — brand palette, shared control styles, responsive layouts, RTL and reduced-motion support.
 - `source/copy.json` — all three languages, metadata and accessibility labels.
-- `source/main.js` — language switching, mobile navigation and keyboard-accessible service tabs.
+- `source/main.js` — language switching, scroll-triggered reveals, active-section navigation and keyboard-accessible service tabs.
 - `source/assets/` — supplied brand assets and locally embedded fonts, including font licenses.
 - `build.py` — dependency-free Python builder.
 - `dist/index.html` — portable build with embedded assets, fonts and font licenses.
@@ -30,6 +30,6 @@ Carmen is described as developing organic, nature-inspired health and personal-c
 
 ## Validation
 
-The redesign was reviewed in the browser in all three languages within 320, 390, 768 and 1280px frames, without horizontal document overflow. Mobile menu opening/closing, Escape focus return, service-tab selection, keyboard navigation and selection preservation across language changes were verified. Desktop project-logo rendering was visually reviewed. The builder checks translation coverage and unresolved assets; anchor targets and JavaScript syntax were also checked.
+The redesign was reviewed in the browser in all three languages within 320, 390, 768 and 1280px frames, without horizontal document overflow. The mobile interface uses a centered app bar, a native language selector, a fixed four-section navigation dock and compact service tabs. Section numbers and the GitHub footer link have been removed from all languages. On-scroll entrances use the Web Animations API and IntersectionObserver once per element; content remains readable without animation support. Reduced-motion preferences are respected, including changes while the page is open. Desktop project-logo rendering was visually reviewed. The builder checks translation coverage and unresolved assets; anchor targets and JavaScript syntax were also checked.
 
 The site preserves its existing private audience. GitHub is a source copy; this repository does not claim automatic deployment integration.
