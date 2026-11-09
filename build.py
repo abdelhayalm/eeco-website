@@ -17,6 +17,8 @@ assets={
  'arabic-regular':uri('fonts/NotoSansArabic-Regular.woff2','font/woff2'),
  'arabic-bold':uri('fonts/NotoSansArabic-Bold.woff2','font/woff2'),
 }
+for stage in ('caterpillar', 'cocoon', 'butterfly'):
+ assets[f'story-{stage}']=(SOURCE/'assets'/'story'/f'{stage}.svg').read_text().strip()
 copy=json.loads((SOURCE/'copy.json').read_text())
 assert set(copy)=={'en','pt','ar'}
 keys=set(re.findall(r'data-i="([^"]+)"',(SOURCE/'template.html').read_text()))
@@ -25,8 +27,10 @@ for lang,words in copy.items():
 script=(SOURCE/'main.js').read_text().replace('__COPY__',json.dumps(copy,ensure_ascii=False,separators=(',',':')))
 style=(SOURCE/'style.css').read_text()
 html=(SOURCE/'template.html').read_text().replace('__STYLE__',style).replace('__SCRIPT__',script)
-licenses='\n\n'.join(p.read_text() for p in sorted((SOURCE/'assets'/'fonts').glob('*OFL.txt')))
-html=html.replace('</head>','<!-- Third-party font licenses\n'+licenses.replace('--','—')+'\n-->\n</head>')
+license_paths = sorted((SOURCE/'assets'/'fonts').glob('*OFL.txt'))
+license_paths.append(SOURCE/'assets'/'story'/'LICENSE.txt')
+licenses='\n\n'.join(p.read_text() for p in license_paths)
+html=html.replace('</head>','<!-- Third-party asset licenses\n'+licenses.replace('--','—')+'\n-->\n</head>')
 html=html.replace('</head>','<noscript><style>.service-tabs,.language-switch,.language-select{display:none!important}.service-panel[hidden]{display:grid!important}.service-panel{margin-bottom:20px}</style></noscript></head>')
 for key,value in assets.items():html=html.replace('{{'+key+'}}',value)
 assert not re.search(r'\{\{[a-z-]+\}\}',html),'Unresolved asset'

@@ -15,10 +15,19 @@ function animateIn(element, variant = 'rise', delay = 0) {
   if (previous) previous.cancel();
   if (reducedMotion.matches || typeof element.animate !== 'function') return;
   // Motion enhances already-readable content; no class ever hides the page.
-  const frames = variant === 'unfold'
-    ? [{opacity: 0, transform: 'translateY(22px) scale(.97)', clipPath: 'inset(4% 0 0 0 round 16px)'}, {opacity: 1, transform: 'none', clipPath: 'inset(0 0 0 0 round 16px)'}]
-    : [{opacity: 0, transform: 'translateY(22px)'}, {opacity: 1, transform: 'none'}];
-  const animation = element.animate(frames, {duration: variant === 'unfold' ? 480 : 420, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards'});
+  let frames = [{opacity: 0, transform: 'translateY(22px)'}, {opacity: 1, transform: 'none'}];
+  let duration = 420;
+  if (variant === 'unfold') {
+    frames = [
+      {opacity: 0, transform: 'translateY(22px) scale(.97)', clipPath: 'inset(4% 0 0 0 round 16px)'},
+      {opacity: 1, transform: 'none', clipPath: 'inset(0 0 0 0 round 16px)'}
+    ];
+    duration = 480;
+  } else if (variant === 'wings') {
+    frames = [{opacity: .32, transform: 'scaleX(.6)'}, {opacity: 1, transform: 'none'}];
+    duration = 680;
+  }
+  const animation = element.animate(frames, {duration, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards'});
   panelAnimations.set(element, animation);
   runningAnimations.add(animation);
   animation.finished.then(() => runningAnimations.delete(animation)).catch(() => runningAnimations.delete(animation));
@@ -63,8 +72,9 @@ function updateScrollState() {
   const growth = document.querySelector('.growth-stages');
   if (growth) {
     const bounds = growth.getBoundingClientRect();
-    const progress = reducedMotion.matches ? 1 : Math.max(0, Math.min(1, (window.innerHeight - bounds.top) / (window.innerHeight * .65)));
-    growth.style.setProperty('--growth-progress', String(progress));
+    const travel = (window.innerHeight * .55 - bounds.top) / bounds.height;
+    const journeyProgress = reducedMotion.matches ? 1 : Math.max(0, Math.min(1, travel));
+    growth.style.setProperty('--growth-progress', String(journeyProgress));
   }
   const threshold = Math.min(window.innerHeight * .4, 260);
   let sectionId = '';
