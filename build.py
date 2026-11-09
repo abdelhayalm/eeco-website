@@ -19,6 +19,8 @@ assets={
 }
 for stage in ('caterpillar', 'cocoon', 'butterfly'):
  assets[f'story-{stage}']=(SOURCE/'assets'/'story'/f'{stage}.svg').read_text().strip()
+for photo in ('forest', 'palms', 'face-painting'):
+ assets[f'founder-{photo}']=uri(f'founder/{photo}.webp','image/webp')
 copy=json.loads((SOURCE/'copy.json').read_text())
 assert set(copy)=={'en','pt','ar'}
 keys=set(re.findall(r'data-i="([^"]+)"',(SOURCE/'template.html').read_text()))

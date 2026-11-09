@@ -99,7 +99,8 @@
     "dockStory": "Story",
     "dockProjects": "Projects",
     "dockAgency": "Agency",
-    "dockGrowth": "Growth"
+    "dockGrowth": "Growth",
+    "founderMosaicLabel": "Three photos of Hapi in Brazil, arranged in the eeco emblem"
   },
   "pt": {
     "skip": "Pular para o conteúdo",
@@ -201,7 +202,8 @@
     "dockStory": "Ideia",
     "dockProjects": "Projetos",
     "dockAgency": "Agência",
-    "dockGrowth": "Jornada"
+    "dockGrowth": "Jornada",
+    "founderMosaicLabel": "Três fotos de Hapi no Brasil no formato do símbolo da eeco"
   },
   "ar": {
     "skip": "انتقل للمحتوى",
@@ -303,6 +305,7 @@
     "dockStory": "الفكرة",
     "dockProjects": "المشاريع",
     "dockAgency": "الأيجنسي",
-    "dockGrowth": "الرحلة"
+    "dockGrowth": "الرحلة",
+    "founderMosaicLabel": "تلات صور لحابي في البرازيل جوّه شكل أيقونة إيكو"
   }
 }
