@@ -7,6 +7,7 @@ def uri(name,mime):
  return 'data:'+mime+';base64,'+base64.b64encode((SOURCE/'assets'/name).read_bytes()).decode('ascii')
 assets={
  'carmen':uri('carmen.svg','image/svg+xml'),
+ 'eeco-sun':uri('eeco-sun.png','image/png'),
  'alquimia':uri('alquimia.svg','image/svg+xml'),
  'alquimia-papyrus':uri('alquimia-ink-papyrus.webp','image/webp'),
  'kemet-wall':uri('kemet-aten-wall.webp','image/webp'),
