@@ -379,20 +379,19 @@ h1,h2,h3{text-wrap:balance}select{color-scheme:dark}svg{flex-shrink:0}
 @media (max-width:760px){
   .project:is(.alquimia,.kemet) .project-logo{height:150px;margin-block:0 14px}
 }
-/* Orbiting emblem and the expanded agency experience. */
+/* Centered sun with a slow breathing cycle. */
 .hero-visual{background:transparent;border:0;border-radius:0;padding:24px;overflow:visible;min-height:380px;justify-content:center}
 .hero-visual:before,.hero-visual:after{display:none}
 .atom-stage{position:relative;width:min(100%,380px);aspect-ratio:1;margin:auto;isolation:isolate}
-.floating-emblem{position:absolute;inset:25%;display:grid;place-items:center;animation:emblem-float 6s ease-in-out infinite;animation-play-state:paused}
-.floating-emblem .hero-emblem{width:100%;height:auto;z-index:1}
-.hero-sun{position:absolute;width:42%;aspect-ratio:1;left:49%;top:42%;z-index:2;background:var(--ink);mask:url("{{eeco-sun}}") center/contain no-repeat;transform:none;opacity:1}
-.hero-visual.is-visible .hero-sun{animation:sun-arrival 1400ms cubic-bezier(.22,1,.36,1) both}
-.hero-visual.is-visible .floating-emblem{animation-play-state:running}
+.hero-sun{position:absolute;inset:25%;aspect-ratio:1;background:var(--sun);mask:url("{{eeco-sun}}") center/contain no-repeat;transform-origin:center;animation:sun-breathe 8s cubic-bezier(.45,0,.55,1) infinite paused}
+.hero-visual.is-visible .hero-sun{animation-play-state:running}
 .atom-orbit{position:absolute;width:100%;height:42%;top:29%;left:0;border:1px solid #fcbf015c;border-radius:50%;transform:rotate(-30deg)}
 .orbit-two{transform:rotate(30deg)}.orbit-three{transform:rotate(90deg)}
 .electron{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--sun);box-shadow:0 0 18px #fcbf0177;offset-path:ellipse(50% 50% at 50% 50%);animation:electron-lap 11s linear infinite paused}
 .orbit-two .electron{animation-duration:14s;animation-delay:-5s}.orbit-three .electron{animation-duration:17s;animation-delay:-9s}.is-visible .electron{animation-play-state:running}
-@keyframes electron-lap{to{offset-distance:100%}}@keyframes emblem-float{50%{transform:translateY(-13px) rotate(-3deg)}}@keyframes sun-arrival{0%,15%{background:var(--ink);transform:none}60%{background:var(--sun);transform:translate(10%,-170%) scale(1.15) rotate(12deg)}100%{background:var(--sun);transform:translate(10%,-150%) scale(1) rotate(0)}}
+@keyframes electron-lap{to{offset-distance:100%}}
+@keyframes sun-breathe{0%,100%{transform:scale(.84);opacity:.85}50%{transform:scale(1.14);opacity:1}}
+
 .projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .ecosystem-note{margin:0 0 30px;text-align:start;max-width:760px;font-size:16px;line-height:1.8}
 .project.materials,.project.carmen{--project-surface:#302015;--project-fade:#302015e8;background:linear-gradient(180deg,#30201515,var(--project-fade) 43%,var(--project-surface) 74%),var(--project-art) center top/100% auto no-repeat var(--project-surface);color:var(--alabaster)}
@@ -419,4 +418,4 @@ dialog::backdrop{background:#01111dc9;backdrop-filter:blur(8px)}.dialog-inner{pa
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}.form-grid label{display:flex;flex-direction:column;gap:9px;font-size:13px;min-width:0}.form-grid input,.form-grid select,.form-grid textarea{width:100%;min-width:0;min-height:46px;padding:12px;border:1px solid #778278;border-radius:9px;background:#18272a;color:var(--alabaster);font:inherit;color-scheme:dark}.form-grid :is(input,select,textarea):focus-visible{outline:2px solid var(--sun);outline-offset:2px}.full-field{grid-column:1/-1}.form-note{font-size:12px;margin-top:22px}
 @media(max-width:900px){.project{display:flex}.project-copy{padding-top:0}.contact-layout{flex-direction:column;align-items:start}.hero-visual{min-height:330px}.atom-stage{max-width:320px}}
 @media(max-width:600px){.projects{grid-template-columns:1fr}.dialog-inner{padding:48px 24px 28px}.form-grid{grid-template-columns:1fr}.project .project-logo{height:150px}.contact-layout{gap:24px}.service-card{padding:15px;gap:12px}}
-@media(prefers-reduced-motion:reduce){.floating-emblem,.electron,.hero-visual.is-visible .hero-sun{animation:none!important}.hero-sun{opacity:1;transform:none;background:var(--ink)}}
+@media(prefers-reduced-motion:reduce){.electron,.hero-sun{animation:none!important}.hero-sun{opacity:1;transform:none}}
