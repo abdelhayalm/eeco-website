@@ -12,11 +12,11 @@
     "heroSecondary": "Discover the idea",
     "tagline": "empowering evolutionary ecosystems",
     "rooted": "Rooted in Egypt. Growing in Brazil. Open to the world.",
-    "founded": "An ecosystem founded by Hapi.",
+    "founded": "Innovative Solutions for Our Land",
     "storyEyebrow": "A shared reason to create",
     "storyTitle": "Growth should<br><span class=\"accent-underline\">give life back.</span>",
     "storyLead": "A business can be more than something we build. It can be a way to care for what matters.",
-    "storyBody": "eeco is the shared philosophy and creative agency behind Hapi’s projects. We connect ecology, economy and digital innovation, with the ambition to create value for people, culture and the living world.",
+    "storyBody": "eeco is an innovation agency that helps businesses solve challenges through regenerative, sustainable and eco-friendly practices. We combine technology with fresh ways of doing business to turn ideas into practical solutions.",
     "role1Title": "The agency makes it real.",
     "role1Body": "Strategy, brand identity and digital experiences turn a meaningful idea into something people can understand, use and grow with.",
     "role2Title": "The movement gives it direction.",
@@ -24,7 +24,6 @@
     "ecoEyebrow": "Different branches. Shared roots.",
     "ecoTitle": "One belief.<br>Many ways to live it.",
     "ecoIntro": "Nature in our everyday lives. Culture across borders. Knowledge that brings us closer. Each project explores a different part of the same purpose.",
-    "carmenCategory": "Nature",
     "carmenTag": "Nature, closer to you.",
     "carmenTitle": "Natural care.<br>Urban life.",
     "carmenBody": "A brand developing organic, nature-inspired products for health and personal care. Carmen brings a healthier, more natural lifestyle into the rhythm of city living.",
@@ -39,7 +38,7 @@
     "kemetTitle": "Egyptian craft.<br>Living heritage.",
     "kemetBody": "Egyptian handmade art and craft shared with the world. Kemet connects people with the skills, stories and cultural richness carried by each piece.",
     "kemetPurpose": "Keeping cultural connections alive across borders.",
-    "ecoNote": "Independent identities. A shared intention to create with care.",
+    "ecoNote": "Businesses growing with us, respecting our ecosystems and creating innovative, eco-friendly products.",
     "agencyEyebrow": "The agency in practice",
     "agencyTitle": "Purpose needs<br>a way forward.",
     "agencyIntro": "We connect the decisions behind a business with the experiences people have of it. Explore the three parts of our work.",
@@ -92,11 +91,86 @@
     "languageLabel": "Choose language",
     "servicesLabel": "Explore our work",
     "pageTitle": "eeco — Empowering evolutionary ecosystems",
-    "metaDescription": "eeco is Hapi’s creative agency and movement. We connect strategy, culture and digital innovation to help purposeful ideas grow into living ecosystems.",
+    "metaDescription": "eeco helps businesses solve challenges through technology, regenerative thinking and sustainable practices. Explore strategy, branding, digital solutions and thoughtful printing.",
     "ecology": "ecology",
     "economy": "economy",
     "evolution": "evolution",
-    "founderMosaicLabel": "Three photos of Hapi in Brazil, arranged in the eeco emblem"
+    "founderMosaicLabel": "Three photos of Hapi in Brazil, arranged in the eeco emblem",
+    "materialsTag": "Thoughtfully printed. Made for your brand.",
+    "materialsTitle": "Your ideas.<br>In good material.",
+    "materialsBody": "Custom printing on bags, shirts, cups and bottles. Let’s explore reusable materials, thoughtful quantities and printing options that suit your project.",
+    "materialsCta": "Tell us what you want to make",
+    "contactEyebrow": "Let’s make something worthwhile",
+    "contactTitle": "A challenge, an idea,<br>or a new possibility?",
+    "contactBody": "We’d love to hear it. Talk with the eeco team about a business challenge, a solution you want to build or a partnership we could grow together. Bring your questions and your ambition. We’re here to listen, help and explore what’s possible.",
+    "contactCta": "Let’s talk about your idea",
+    "closeDialog": "Close",
+    "quickLabel": "Explore a solution",
+    "quickOutcome": "What we can work on together",
+    "quickCta": "Let’s explore this together",
+    "formTitle": "What would you like to create?",
+    "formIntro": "Share a few details. We’ll help you explore materials, printing options and a quote.",
+    "fieldName": "Your name *",
+    "fieldBusiness": "Business or project",
+    "fieldMaterial": "Material *",
+    "selectMaterial": "Choose a material",
+    "materialBags": "Bags and packaging",
+    "materialShirts": "Cotton shirts and textiles",
+    "materialCups": "Cups and mugs",
+    "materialBottles": "Bottles",
+    "materialPaper": "Paper and stationery",
+    "materialBamboo": "Bamboo items",
+    "materialOther": "Other / help me choose",
+    "fieldQuantity": "Quantity *",
+    "fieldPrinting": "Printing and customization *",
+    "printingHint": "Print positions, colors, dimensions or technique",
+    "fieldArtwork": "Artwork",
+    "artworkReady": "My artwork is ready",
+    "artworkHelp": "I need design support",
+    "artworkUnsure": "Let’s discuss it",
+    "fieldLocation": "Delivery city and state *",
+    "fieldDeadline": "Preferred delivery date",
+    "fieldNotes": "Sizes, material preferences and other details",
+    "formNote": "We’ll confirm material availability, printing methods, price and timing with you. WhatsApp opens with your request ready to review and send. You can share artwork there.",
+    "formSubmit": "Continue on WhatsApp",
+    "serviceDetails": [
+      [
+        "Clarify why your business exists, who it serves and what makes it a meaningful choice. We connect your ambition with the needs of real people.",
+        "A purpose statement, audience priorities and a clear positioning direction to guide decisions."
+      ],
+      [
+        "Explore how your idea creates value, reaches customers and supports a viable business. We map the offer, resources, partners and revenue assumptions together.",
+        "A business model and value proposition, with assumptions to validate before committing resources."
+      ],
+      [
+        "Turn a broad ambition into a sequence of manageable steps. We identify dependencies, focus effort and define what progress should look like.",
+        "A prioritized roadmap with next actions, responsibilities and useful measures of progress."
+      ],
+      [
+        "Translate your purpose into a visual world people can recognize. We explore the brand concept, typography, color and imagery as one connected identity.",
+        "A visual direction and practical brand guidance for consistent use across your materials and channels."
+      ],
+      [
+        "Find words that sound like your business and matter to your audience. We shape the story, key messages and tone for the moments people meet your brand.",
+        "A brand narrative, message hierarchy and examples of your voice in everyday communication."
+      ],
+      [
+        "Give your communication a purpose and a workable rhythm. We connect audience questions, topics, channels and production to your goals.",
+        "Content pillars, channel priorities and a realistic editorial plan with a clear next step for the audience."
+      ],
+      [
+        "Create a digital place that helps people understand your offer and act on it. We scope the right website or tool around real tasks and practical needs.",
+        "A website or digital-tool scope, clear content structure and an implementation plan suited to your project."
+      ],
+      [
+        "Look at your experience from the customer’s point of view. We find confusing steps, missing information and opportunities to make the next action easier.",
+        "A user journey, content recommendations and prioritized improvements for a clearer experience."
+      ],
+      [
+        "Launch with a plan to learn. We define what to observe, collect feedback and use it to decide what to improve next.",
+        "A launch checklist, feedback approach and an improvement cycle guided by meaningful signals."
+      ]
+    ]
   },
   "pt": {
     "skip": "Pular para o conteúdo",
@@ -115,11 +189,11 @@
     "heroSecondary": "Descubra a ideia",
     "tagline": "fortalecendo ecossistemas em evolução",
     "rooted": "Raízes no Egito. Crescendo no Brasil. Abertos ao mundo.",
-    "founded": "Um ecossistema fundado por Hapi.",
+    "founded": "Soluções inovadoras para a nossa terra",
     "storyEyebrow": "Um propósito que nos conecta",
     "storyTitle": "Crescer também é<br><span class=\"accent-underline\">cultivar a vida.</span>",
     "storyLead": "Um negócio pode ser mais do que algo que construímos. Pode ser uma forma de cuidar do que importa.",
-    "storyBody": "A eeco é a filosofia compartilhada e a agência criativa por trás dos projetos de Hapi. Conectamos ecologia, economia e inovação digital, com a ambição de gerar valor para as pessoas, a cultura e o mundo vivo.",
+    "storyBody": "A eeco é uma agência de inovação que ajuda empresas a resolver desafios por meio de práticas regenerativas, sustentáveis e de menor impacto ambiental. Combinamos tecnologia com novas formas de fazer negócios para transformar ideias em soluções práticas.",
     "role1Title": "A agência transforma em realidade.",
     "role1Body": "Estratégia, identidade de marca e experiências digitais tornam uma ideia com propósito em algo que as pessoas podem entender, usar e desenvolver.",
     "role2Title": "O movimento dá direção.",
@@ -127,7 +201,6 @@
     "ecoEyebrow": "Ramos diferentes. Raízes em comum.",
     "ecoTitle": "Uma visão.<br>Muitas formas de vivê-la.",
     "ecoIntro": "Natureza no dia a dia. Cultura além das fronteiras. Conhecimento que aproxima. Cada projeto explora uma parte do mesmo propósito.",
-    "carmenCategory": "Natureza",
     "carmenTag": "A natureza, mais perto.",
     "carmenTitle": "Cuidado natural.<br>Vida urbana.",
     "carmenBody": "Uma marca dedicada ao desenvolvimento de produtos orgânicos, inspirados na natureza, para a saúde e o cuidado pessoal. Carmen aproxima um estilo de vida mais saudável e natural do ritmo da cidade.",
@@ -142,7 +215,7 @@
     "kemetTitle": "Artesanato egípcio.<br>Herança viva.",
     "kemetBody": "Arte e artesanato feitos à mão no Egito, compartilhados com o mundo. A Kemet conecta pessoas aos saberes, às histórias e à riqueza cultural de cada peça.",
     "kemetPurpose": "Manter conexões culturais vivas além das fronteiras.",
-    "ecoNote": "Identidades próprias. Uma intenção comum de criar com cuidado.",
+    "ecoNote": "Negócios que crescem com a gente, respeitando nossos ecossistemas e criando produtos inovadores e de menor impacto ambiental.",
     "agencyEyebrow": "A agência na prática",
     "agencyTitle": "O propósito precisa<br>de um caminho.",
     "agencyIntro": "Conectamos as decisões de um negócio às experiências que as pessoas têm com ele. Explore as três frentes do nosso trabalho.",
@@ -191,11 +264,86 @@
     "footerLine": "Agência criativa e movimento de Hapi.",
     "backTop": "Voltar ao início",
     "pageTitle": "eeco — Ecossistemas em evolução",
-    "metaDescription": "A eeco é a agência criativa e o movimento de Hapi. Estratégia, cultura e inovação digital para dar vida a negócios com propósito.",
+    "metaDescription": "A eeco ajuda empresas a resolver desafios com tecnologia, pensamento regenerativo e práticas sustentáveis. Estratégia, marcas, soluções digitais e impressão consciente.",
     "ecology": "ecologia",
     "economy": "economia",
     "evolution": "evolução",
-    "founderMosaicLabel": "Três fotos de Hapi no Brasil no formato do símbolo da eeco"
+    "founderMosaicLabel": "Três fotos de Hapi no Brasil no formato do símbolo da eeco",
+    "materialsTag": "Impressão consciente. A sua marca.",
+    "materialsTitle": "Suas ideias.<br>Em bons materiais.",
+    "materialsBody": "Personalização de sacolas, camisetas, copos e garrafas. Vamos explorar materiais reutilizáveis, quantidades conscientes e opções de impressão adequadas ao seu projeto.",
+    "materialsCta": "Conte o que você quer criar",
+    "contactEyebrow": "Vamos criar algo que faça sentido",
+    "contactTitle": "Um desafio, uma ideia<br>ou uma nova possibilidade?",
+    "contactBody": "Queremos ouvir você. Converse com a equipe eeco sobre um desafio do seu negócio, uma solução que deseja criar ou uma parceria para crescer juntos. Traga suas perguntas e sua vontade de inovar. Estamos aqui para ouvir, ajudar e explorar possibilidades.",
+    "contactCta": "Vamos conversar sobre sua ideia",
+    "closeDialog": "Fechar",
+    "quickLabel": "Explore uma solução",
+    "quickOutcome": "O que podemos desenvolver juntos",
+    "quickCta": "Vamos explorar juntos",
+    "formTitle": "O que você quer criar?",
+    "formIntro": "Conte alguns detalhes. Ajudamos você a explorar materiais, opções de impressão e um orçamento.",
+    "fieldName": "Seu nome *",
+    "fieldBusiness": "Empresa ou projeto",
+    "fieldMaterial": "Material *",
+    "selectMaterial": "Escolha um material",
+    "materialBags": "Sacolas e embalagens",
+    "materialShirts": "Camisetas de algodão e tecidos",
+    "materialCups": "Copos e canecas",
+    "materialBottles": "Garrafas",
+    "materialPaper": "Papel e papelaria",
+    "materialBamboo": "Itens de bambu",
+    "materialOther": "Outro / quero ajuda para escolher",
+    "fieldQuantity": "Quantidade *",
+    "fieldPrinting": "Impressão e personalização *",
+    "printingHint": "Posições, cores, medidas ou técnica",
+    "fieldArtwork": "Arte",
+    "artworkReady": "Minha arte está pronta",
+    "artworkHelp": "Preciso de apoio com o design",
+    "artworkUnsure": "Vamos conversar",
+    "fieldLocation": "Cidade e estado de entrega *",
+    "fieldDeadline": "Data de entrega desejada",
+    "fieldNotes": "Tamanhos, preferências de materiais e outros detalhes",
+    "formNote": "Confirmaremos com você a disponibilidade dos materiais, as técnicas, o preço e o prazo. O WhatsApp abrirá com seu pedido pronto para revisar e enviar. Você poderá compartilhar a arte por lá.",
+    "formSubmit": "Continuar no WhatsApp",
+    "serviceDetails": [
+      [
+        "Defina por que seu negócio existe, a quem serve e por que as pessoas deveriam escolhê-lo. Conectamos sua ambição às necessidades do público.",
+        "Uma declaração de propósito, prioridades de público e um posicionamento para orientar decisões."
+      ],
+      [
+        "Explore como sua ideia cria valor, chega ao cliente e sustenta um negócio viável. Mapeamos a oferta, os recursos, as parcerias e as hipóteses de receita.",
+        "Um modelo de negócio e uma proposta de valor, com hipóteses para validar antes de investir recursos."
+      ],
+      [
+        "Transforme uma ambição em etapas possíveis. Identificamos dependências, concentramos esforços e definimos como acompanhar o progresso.",
+        "Um roteiro com prioridades, próximas ações, responsabilidades e indicadores úteis."
+      ],
+      [
+        "Traduza seu propósito em uma identidade visual reconhecível. Conceito, tipografia, cores e imagens fazem parte da mesma direção.",
+        "Uma direção visual e orientações práticas para usar a marca com consistência nos materiais e canais."
+      ],
+      [
+        "Encontre palavras que representem seu negócio e façam sentido para seu público. Desenvolvemos a história, as mensagens e o tom de voz da marca.",
+        "Uma narrativa de marca, uma hierarquia de mensagens e exemplos de comunicação no dia a dia."
+      ],
+      [
+        "Dê propósito e ritmo à sua comunicação. Conectamos as dúvidas do público, os temas, os canais e a produção aos seus objetivos.",
+        "Pilares de conteúdo, prioridades de canais e um plano editorial viável com próximos passos claros."
+      ],
+      [
+        "Crie uma experiência digital que ajude as pessoas a entender sua oferta e agir. Definimos o site ou a ferramenta a partir de tarefas e necessidades reais.",
+        "Escopo de site ou ferramenta digital, estrutura de conteúdo e um plano de implementação adequado ao projeto."
+      ],
+      [
+        "Veja a experiência pelos olhos do cliente. Identificamos etapas confusas, informações que faltam e formas de facilitar a próxima ação.",
+        "Uma jornada do usuário, recomendações de conteúdo e melhorias priorizadas para uma experiência mais clara."
+      ],
+      [
+        "Lance com um plano para aprender. Definimos o que observar, recolhemos feedback e usamos os aprendizados para decidir as próximas melhorias.",
+        "Um checklist de lançamento, uma abordagem de feedback e um ciclo de melhoria com indicadores relevantes."
+      ]
+    ]
   },
   "ar": {
     "skip": "انتقل للمحتوى",
@@ -214,11 +362,11 @@
     "heroSecondary": "اعرف الفكرة",
     "tagline": "بندعم منظومات تنمو وتتطور",
     "rooted": "جذورنا في مصر. بننمو في البرازيل. ومفتوحين للعالم.",
-    "founded": "منظومة مشاريع أسسها Hapi.",
+    "founded": "حلول مبتكرة لأرضنا",
     "storyEyebrow": "هدف بيجمع اللي بنعمله",
     "storyTitle": "نكبر، ونسيب<br><span class=\"accent-underline\">حياة أغنى حوالينا.</span>",
     "storyLead": "المشروع ممكن يكون أكتر من حاجة بنبنيها. ممكن يكون طريقتنا في الاهتمام باللي يستحق.",
-    "storyBody": "إيكو هي الفلسفة المشتركة والأيجنسي الإبداعية اللي ورا مشاريع Hapi. بنوصل البيئة والاقتصاد والابتكار الرقمي ببعض، وطموحنا نصنع قيمة للناس والثقافة والعالم الحي اللي حوالينا.",
+    "storyBody": "إيكو وكالة ابتكار بتساعد الشركات تحل تحدياتها بممارسات مستدامة وصديقة للبيئة بتدعم تجدد الطبيعة. بنجمع التكنولوجيا مع طرق جديدة لإدارة الشغل، عشان نحوّل الأفكار لحلول عملية.",
     "role1Title": "الأيجنسي بتحوّل الفكرة لواقع.",
     "role1Body": "استراتيجية واضحة، وهوية براند، وتجارب رقمية بتحوّل الفكرة لمشروع الناس تقدر تفهمه وتستخدمه وتكبر معاه.",
     "role2Title": "والموفمنت بتديها اتجاه.",
@@ -226,7 +374,6 @@
     "ecoEyebrow": "فروع مختلفة. وجذور مشتركة.",
     "ecoTitle": "فكرة بتجمعنا.<br>وطرق كتير نعيشها.",
     "ecoIntro": "طبيعة في يومنا. وثقافة بتعدّي الحدود. ومعرفة بتقرّبنا من بعض. كل مشروع بيعبّر عن جانب من نفس الهدف.",
-    "carmenCategory": "الطبيعة",
     "carmenTag": "الطبيعة أقرب ليك.",
     "carmenTitle": "عناية من الطبيعة.<br>وسط حياة المدينة.",
     "carmenBody": "براند بيطوّر منتجات عضوية مستلهمة من الطبيعة للعناية بالصحة والعناية الشخصية. كارمن بتقرّب أسلوب حياة صحي وطبيعي من إيقاع الحياة في المدينة.",
@@ -241,7 +388,7 @@
     "kemetTitle": "حِرفة مصرية.<br>وتراث عايش.",
     "kemetBody": "فن وحرف يدوية مصرية بنشاركها مع العالم. كيميت بتوصل الناس بالمهارات والحكايات والغنى الثقافي اللي كل قطعة شايلهم.",
     "kemetPurpose": "نخلّي التواصل الثقافي حي، ويتخطّى الحدود.",
-    "ecoNote": "لكل مشروع هويته. وبيجمعهم هدف إننا نخلق قيمة باهتمام.",
+    "ecoNote": "مشاريع بتكبر معانا، بتحترم أنظمتنا البيئية وبتبتكر منتجات صديقة للبيئة.",
     "agencyEyebrow": "الأيجنسي على أرض الواقع",
     "agencyTitle": "الهدف محتاج<br>طريق يتحقق بيه.",
     "agencyIntro": "بنوصل القرارات اللي ورا المشروع بالتجربة اللي الناس بتعيشها معاه. اكتشف الجوانب التلاتة لشغلنا.",
@@ -290,10 +437,85 @@
     "footerLine": "أيجنسي إبداعية وحركة أسسها Hapi.",
     "backTop": "ارجع للبداية",
     "pageTitle": "إيكو — أفكار تنمو وتتطور",
-    "metaDescription": "إيكو هي الأيجنسي الإبداعية والحركة اللي أسسها Hapi. بنجمع استراتيجية الأعمال والثقافة والابتكار الرقمي لبناء مشاريع ليها معنى.",
+    "metaDescription": "إيكو بتساعد الشركات تحل تحدياتها بالتكنولوجيا والابتكار والممارسات المستدامة. اكتشف خدمات الاستراتيجية والهوية والحلول الرقمية والطباعة الواعية.",
     "ecology": "البيئة",
     "economy": "الاقتصاد",
     "evolution": "التطور",
-    "founderMosaicLabel": "تلات صور لحابي في البرازيل جوّه شكل أيقونة إيكو"
+    "founderMosaicLabel": "تلات صور لحابي في البرازيل جوّه شكل أيقونة إيكو",
+    "materialsTag": "طباعة بوعي. بروح براندك.",
+    "materialsTitle": "أفكارك.<br>في خامات تستاهل.",
+    "materialsBody": "طباعة حسب طلبك على الشنط والتيشيرتات والأكواب والزجاجات. نختار معاك خامات قابلة لإعادة الاستخدام، وكميات مناسبة وطرق طباعة تناسب مشروعك.",
+    "materialsCta": "احكيلنا عايز تعمل إيه",
+    "contactEyebrow": "تعالى نعمل حاجة لها قيمة",
+    "contactTitle": "عندك تحدّي، فكرة،<br>أو فرصة جديدة؟",
+    "contactBody": "نحب نسمع منك. اتكلم مع فريق إيكو عن تحدّي في شغلك، أو حل نفسك تطوّره، أو شراكة نكبر بيها سوا. تعالى بأسئلتك وطموحك. إحنا موجودين نسمعك، ونساعدك، ونشوف نقدر نبتكر إيه مع بعض.",
+    "contactCta": "خلّينا نتكلم عن فكرتك",
+    "closeDialog": "إغلاق",
+    "quickLabel": "اكتشف الحل",
+    "quickOutcome": "نقدر نشتغل على إيه سوا",
+    "quickCta": "خلّينا نستكشف ده سوا",
+    "formTitle": "نفسك تعمل إيه؟",
+    "formIntro": "شاركنا تفاصيل بسيطة، ونساعدك تختار الخامة والطباعة ونعمل لك عرض سعر.",
+    "fieldName": "اسمك *",
+    "fieldBusiness": "اسم الشركة أو المشروع",
+    "fieldMaterial": "الخامة أو المنتج *",
+    "selectMaterial": "اختار المنتج",
+    "materialBags": "شنط وعبوات تغليف",
+    "materialShirts": "تيشيرتات قطن ومنسوجات",
+    "materialCups": "أكواب ومجات",
+    "materialBottles": "زجاجات",
+    "materialPaper": "ورق وأدوات مكتبية",
+    "materialBamboo": "منتجات بامبو",
+    "materialOther": "غير كده / ساعدني أختار",
+    "fieldQuantity": "الكمية *",
+    "fieldPrinting": "تفاصيل الطباعة والتخصيص *",
+    "printingHint": "أماكن الطباعة والألوان والمقاسات أو التقنية",
+    "fieldArtwork": "التصميم",
+    "artworkReady": "التصميم جاهز",
+    "artworkHelp": "محتاج مساعدة في التصميم",
+    "artworkUnsure": "نتكلم فيه سوا",
+    "fieldLocation": "مدينة وولاية التسليم *",
+    "fieldDeadline": "تاريخ التسليم المفضّل",
+    "fieldNotes": "المقاسات والخامات المفضّلة وأي تفاصيل تانية",
+    "formNote": "هنأكد معاك توافر الخامات وطريقة الطباعة والسعر والميعاد. واتساب هيفتح بطلبك جاهز للمراجعة والإرسال. وتقدر تبعت التصميم هناك.",
+    "formSubmit": "كمّل على واتساب",
+    "serviceDetails": [
+      [
+        "نوضّح مشروعك موجود ليه، وبيخدم مين، وإيه اللي يخلي الناس تختاره. بنربط طموحك باحتياجات جمهورك الحقيقية.",
+        "صياغة للهدف، وأولويات الجمهور، وتموضع واضح يساعدك تاخد قراراتك."
+      ],
+      [
+        "نستكشف إزاي فكرتك بتخلق قيمة، وبتوصل للعميل، وتقدر تستمر كمشروع. بنرسم العرض والموارد والشراكات وافتراضات الإيرادات معاك.",
+        "نموذج عمل وعرض قيمة، مع افتراضات نختبرها قبل تخصيص الموارد."
+      ],
+      [
+        "نحوّل الطموح لخطوات تقدر تنفّذها. نحدد الأولويات واعتماد الخطوات على بعض، ونعرف هنتابع التقدّم إزاي.",
+        "خريطة طريق بأولويات وخطوات جاية ومسؤوليات ومقاييس مفيدة للتقدّم."
+      ],
+      [
+        "نترجم هدفك لهوية بصرية الناس تقدر تتعرف عليها. نطوّر الفكرة والخطوط والألوان والصور في اتجاه واحد مترابط.",
+        "اتجاه بصري وإرشادات عملية لاستخدام البراند بشكل متناسق على المواد والقنوات."
+      ],
+      [
+        "نلاقي كلام يعبّر عن مشروعك ويوصل لجمهورك. نصيغ حكاية البراند ورسائله الأساسية ونبرة صوته.",
+        "حكاية للبراند وترتيب للرسائل وأمثلة لصوته في التواصل اليومي."
+      ],
+      [
+        "ندي تواصلك هدف وإيقاع قابل للتنفيذ. نربط أسئلة الجمهور بالموضوعات والقنوات وإنتاج المحتوى وأهداف المشروع.",
+        "محاور محتوى وأولويات للقنوات وخطة نشر واقعية بخطوة واضحة للجمهور."
+      ],
+      [
+        "نعمل تجربة رقمية تساعد الناس تفهم عرضك وتاخد الخطوة الجاية. نحدد الموقع أو الأداة على أساس احتياجات ومهام حقيقية.",
+        "نطاق الموقع أو الأداة، وهيكل المحتوى، وخطة تنفيذ مناسبة لمشروعك."
+      ],
+      [
+        "نشوف التجربة بعين العميل. نحدد الخطوات المحيّرة والمعلومات الناقصة وفرص تسهيل الخطوة الجاية.",
+        "رحلة للمستخدم وتوصيات للمحتوى وتحسينات مرتّبة بالأولوية لتجربة أوضح."
+      ],
+      [
+        "نطلق ومعانا خطة نتعلّم بيها. نحدد إيه اللي نتابعه، ونجمع الملاحظات، ونستخدمها لتحديد التحسينات الجاية.",
+        "قائمة تجهيز للإطلاق وطريقة لجمع الملاحظات ودورة تحسين مبنية على مؤشرات مفيدة."
+      ]
+    ]
   }
 }

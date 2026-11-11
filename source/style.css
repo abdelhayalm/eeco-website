@@ -362,7 +362,7 @@ h1,h2,h3{text-wrap:balance}select{color-scheme:dark}svg{flex-shrink:0}
   --project-fade:#191b1ddb;
 }
 .project:is(.alquimia,.kemet) .project-logo{
-  height:142px;
+  height:150px;
   margin-block:0 18px;
 }
 .project:is(.alquimia,.kemet) .project-logo img{
@@ -376,15 +376,47 @@ h1,h2,h3{text-wrap:balance}select{color-scheme:dark}svg{flex-shrink:0}
   color:var(--alabaster)!important;
 }
 .project[href]:focus-visible{outline:3px solid var(--sun);outline-offset:4px}
-@media (min-width:761px) and (max-width:900px){
-  .project:is(.alquimia,.kemet){
-    background-image:linear-gradient(to right,#141a2666,var(--project-fade) 45%,var(--project-surface) 78%),var(--project-art);
-  }
-  [dir=rtl] .project:is(.alquimia,.kemet){
-    background-image:linear-gradient(to left,#141a2666,var(--project-fade) 45%,var(--project-surface) 78%),var(--project-art);
-  }
-  .project:is(.alquimia,.kemet) .project-logo{margin-block:0}
-}
 @media (max-width:760px){
   .project:is(.alquimia,.kemet) .project-logo{height:150px;margin-block:0 14px}
 }
+/* Orbiting emblem and the expanded agency experience. */
+.hero-visual{background:transparent;border:0;border-radius:0;padding:24px;overflow:visible;min-height:380px;justify-content:center}
+.hero-visual:before,.hero-visual:after{display:none}
+.atom-stage{position:relative;width:min(100%,380px);aspect-ratio:1;margin:auto;isolation:isolate}
+.floating-emblem{position:absolute;inset:25%;display:grid;place-items:center;animation:emblem-float 6s ease-in-out infinite;animation-play-state:paused}
+.floating-emblem .hero-emblem{width:100%;height:auto;z-index:1}
+.hero-sun{position:absolute;width:42%;aspect-ratio:1;left:49%;top:42%;z-index:2;background:var(--ink);mask:url("{{eeco-sun}}") center/contain no-repeat;transform:none;opacity:1}
+.hero-visual.is-visible .hero-sun{animation:sun-arrival 1400ms cubic-bezier(.22,1,.36,1) both}
+.hero-visual.is-visible .floating-emblem{animation-play-state:running}
+.atom-orbit{position:absolute;width:100%;height:42%;top:29%;left:0;border:1px solid #fcbf015c;border-radius:50%;transform:rotate(-30deg)}
+.orbit-two{transform:rotate(30deg)}.orbit-three{transform:rotate(90deg)}
+.electron{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--sun);box-shadow:0 0 18px #fcbf0177;offset-path:ellipse(50% 50% at 50% 50%);animation:electron-lap 11s linear infinite paused}
+.orbit-two .electron{animation-duration:14s;animation-delay:-5s}.orbit-three .electron{animation-duration:17s;animation-delay:-9s}.is-visible .electron{animation-play-state:running}
+@keyframes electron-lap{to{offset-distance:100%}}@keyframes emblem-float{50%{transform:translateY(-13px) rotate(-3deg)}}@keyframes sun-arrival{0%,15%{background:var(--ink);transform:none}60%{background:var(--sun);transform:translate(10%,-170%) scale(1.15) rotate(12deg)}100%{background:var(--sun);transform:translate(10%,-150%) scale(1) rotate(0)}}
+.projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.ecosystem-note{margin:0 0 30px;text-align:start;max-width:760px;font-size:16px;line-height:1.8}
+.project.materials,.project.carmen{--project-surface:#302015;--project-fade:#302015e8;background:linear-gradient(180deg,#30201515,var(--project-fade) 43%,var(--project-surface) 74%),var(--project-art) center top/100% auto no-repeat var(--project-surface);color:var(--alabaster)}
+.project.materials{--project-art:url("{{materials}}");text-align:start;font:inherit;border:0;cursor:pointer}
+.project.carmen{--project-art:url("{{carmen-lamp}}");--project-surface:#241a15;--project-fade:#241a15e8}
+.project .project-logo{height:150px;margin:0 0 18px}
+.project.carmen .project-logo img{width:68%;height:100%;filter:brightness(1.2)}
+.project.materials .eyebrow,.project.carmen .eyebrow{color:#f2dca9}
+.project.materials .project-copy>p:not(.eyebrow),.project.carmen .project-copy>p:not(.eyebrow){color:#eee4d6}
+.project.materials .project-purpose,.project.carmen .project-purpose{border-color:#e6c98155;color:var(--alabaster)!important}
+.materials-wordmark{font-size:clamp(42px,5vw,62px);font-weight:700;letter-spacing:-.04em;text-shadow:0 2px 18px #302015;line-height:1}
+.materials-wordmark span{display:block;text-align:center;font-size:16px;letter-spacing:.18em;margin-top:12px}
+.project:focus-visible,.service-card:focus-visible{outline:3px solid var(--sun);outline-offset:4px}
+.service-detail ul{display:grid;gap:12px;list-style:none;padding:0;margin-top:26px}
+.service-detail li{padding:0;border:0!important}
+.service-card{display:flex;align-items:center;gap:16px;width:100%;padding:18px;border:1px solid #fffff033;border-radius:12px;background:#fffff007;color:var(--alabaster);text-align:start;font:inherit;line-height:1.6;transition:background .2s,border-color .2s}
+.service-card:hover{background:#fffff012;border-color:var(--sun)}
+.service-card svg{width:28px;height:28px;flex-shrink:0;color:var(--sun)}.service-plus{margin-inline-start:auto;color:var(--sun);font-size:24px}
+.contact-invite{background:var(--plum)}.contact-layout{display:flex;gap:56px;align-items:center;justify-content:space-between}.contact-layout>div{max-width:740px}.contact-layout h2{margin:18px 0 24px}.contact-layout p:not(.eyebrow){color:var(--soft);font-size:16px;line-height:1.9}.contact-layout .button{flex-shrink:0}
+.vision-emblem{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important}.vision-emblem:before,.vision-emblem:after{display:none}
+.founder-photo--forest{filter:saturate(.95) contrast(1.03)}
+dialog{margin:auto;width:min(660px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:0;border:1px solid #fffff030;border-radius:20px;background:var(--ink);color:var(--alabaster);box-shadow:0 24px 90px #0008;overscroll-behavior:contain}
+dialog::backdrop{background:#01111dc9;backdrop-filter:blur(8px)}.dialog-inner{padding:44px;position:relative}.dialog-close{position:absolute;inset-inline-end:12px;top:12px;width:44px;height:44px;border:0;border-radius:50%;background:#fffff012;color:var(--alabaster);font-size:28px}.dialog-close:focus-visible{outline:2px solid var(--sun)}.dialog-inner h2{font-size:clamp(26px,4vw,38px);margin:18px 0;line-height:1.3}.dialog-inner h3{font-size:16px;color:var(--sun);margin:26px 0 12px}.dialog-inner p{line-height:1.9;color:var(--soft)}.dialog-inner .button{margin-top:26px}.quick-icon svg{width:48px;height:48px;color:var(--sun);margin-bottom:20px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}.form-grid label{display:flex;flex-direction:column;gap:9px;font-size:13px;min-width:0}.form-grid input,.form-grid select,.form-grid textarea{width:100%;min-width:0;min-height:46px;padding:12px;border:1px solid #778278;border-radius:9px;background:#18272a;color:var(--alabaster);font:inherit;color-scheme:dark}.form-grid :is(input,select,textarea):focus-visible{outline:2px solid var(--sun);outline-offset:2px}.full-field{grid-column:1/-1}.form-note{font-size:12px;margin-top:22px}
+@media(max-width:900px){.project{display:flex}.project-copy{padding-top:0}.contact-layout{flex-direction:column;align-items:start}.hero-visual{min-height:330px}.atom-stage{max-width:320px}}
+@media(max-width:600px){.projects{grid-template-columns:1fr}.dialog-inner{padding:48px 24px 28px}.form-grid{grid-template-columns:1fr}.project .project-logo{height:150px}.contact-layout{gap:24px}.service-card{padding:15px;gap:12px}}
+@media(prefers-reduced-motion:reduce){.floating-emblem,.electron,.hero-visual.is-visible .hero-sun{animation:none!important}.hero-sun{opacity:1;transform:none;background:var(--ink)}}

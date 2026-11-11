@@ -140,19 +140,68 @@ if ('IntersectionObserver' in window) {
   document.querySelectorAll('[data-reveal]').forEach(element => reveals.observe(element));
 }
 
-// One quiet brand gesture, only while the hero is visible. Never a perpetual loop.
-const heroVisual = document.querySelector('.hero-visual');
-const precisePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-if (heroVisual) {
-  heroVisual.addEventListener('pointerenter', () => {
-    if (!precisePointer.matches || reducedMotion.matches) return;
-    const emblem = heroVisual.querySelector('.hero-emblem');
-    const animation = emblem.animate([
-      {transform:'translateY(0) rotate(0deg)'},
-      {transform:'translateY(-8px) rotate(-3deg)'},
-      {transform:'translateY(0) rotate(0deg)'}
-    ], {duration:1100,easing:'cubic-bezier(.22,1,.36,1)'});
-    runningAnimations.add(animation);
-    animation.finished.then(() => runningAnimations.delete(animation)).catch(() => runningAnimations.delete(animation));
-  });
+// Native dialogs provide keyboard dismissal, focus containment and focus return.
+const serviceDialog = document.getElementById('service-dialog');
+const materialsDialog = document.getElementById('materials-dialog');
+let quickServiceIndex = 0;
+const serviceKeys = ['strategyItem1','strategyItem2','strategyItem3','brandItem1','brandItem2','brandItem3','digitalItem1','digitalItem2','digitalItem3'];
+const whatsappNumber = '5511910088410';
+function whatsappUrl(message) {
+  return 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
 }
+function updateQuickCard() {
+  const words = copy[currentLanguage];
+  const title = words[serviceKeys[quickServiceIndex]];
+  document.getElementById('quick-title').textContent = title;
+  document.getElementById('quick-description').textContent = words.serviceDetails[quickServiceIndex][0];
+  document.getElementById('quick-deliverable').textContent = words.serviceDetails[quickServiceIndex][1];
+  document.getElementById('quick-contact').href = whatsappUrl(words.contactCta + ' — ' + title);
+}
+document.querySelectorAll('[data-quick]').forEach(button => button.addEventListener('click', () => {
+  quickServiceIndex = Number(button.dataset.quick);
+  document.getElementById('quick-icon').replaceChildren(button.querySelector('svg').cloneNode(true));
+  updateQuickCard();
+  serviceDialog.showModal();
+}));
+document.querySelectorAll('[data-open-materials]').forEach(button => button.addEventListener('click', () => materialsDialog.showModal()));
+document.querySelectorAll('[data-close-dialog]').forEach(button => button.addEventListener('click', () => button.closest('dialog').close()));
+[serviceDialog, materialsDialog].forEach(dialog => dialog.addEventListener('click', event => {
+  if (event.target !== dialog) return;
+  const bounds = dialog.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+}));
+const materialForm = document.getElementById('materials-form');
+function updateRequest() {
+  const data = new FormData(materialForm);
+  const words = copy[currentLanguage];
+  const fields = [['customer','fieldName'],['business','fieldBusiness'],['material','fieldMaterial'],['quantity','fieldQuantity'],['printing','fieldPrinting'],['artwork','fieldArtwork'],['location','fieldLocation'],['deadline','fieldDeadline'],['notes','fieldNotes']];
+  const lines = fields.map(([name,key]) => {
+    const control = materialForm.elements.namedItem(name);
+    const value = control.tagName === 'SELECT' && control.value ? control.selectedOptions[0].textContent : String(data.get(name) || '').trim();
+    return value ? words[key].replace(' *','') + ': ' + value : '';
+  }).filter(Boolean);
+  materialForm.dataset.whatsapp = whatsappUrl('eeco materials\n\n' + lines.join('\n'));
+}
+materialForm.addEventListener('input', updateRequest);
+materialForm.addEventListener('change', updateRequest);
+materialForm.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!materialForm.reportValidity()) return;
+  updateRequest();
+  window.open(materialForm.dataset.whatsapp, '_blank', 'noopener,noreferrer');
+});
+function updateNewContent() {
+  document.querySelectorAll('[data-placeholder]').forEach(element => {element.placeholder = copy[currentLanguage][element.dataset.placeholder];});
+  document.querySelectorAll('.agency-contact').forEach(link => { link.href = whatsappUrl(copy[currentLanguage].contactCta); });
+  updateQuickCard();
+  updateRequest();
+}
+// Refresh dynamic content alongside the existing language controls.
+document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', updateNewContent));
+document.querySelector('.language-select').addEventListener('change', updateNewContent);
+updateNewContent();
+const heroVisual = document.querySelector('.hero-visual');
+const orbitObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+  entry.target.classList.toggle('is-visible', entry.isIntersecting);
+}), {threshold:.2});
+orbitObserver.observe(heroVisual);

@@ -6,6 +6,8 @@ SOURCE=ROOT/'source'
 def uri(name,mime):
  return 'data:'+mime+';base64,'+base64.b64encode((SOURCE/'assets'/name).read_bytes()).decode('ascii')
 assets={
+ 'carmen-lamp':uri('carmen-lamp.webp','image/webp'),
+ 'materials':uri('materials.webp','image/webp'),
  'carmen':uri('carmen.svg','image/svg+xml'),
  'eeco-sun':uri('eeco-sun.png','image/png'),
  'alquimia':uri('alquimia.svg','image/svg+xml'),
