@@ -26,7 +26,7 @@ Solar yellow `#FCBF01`, dark green-black `#111B1E`, plum `#26161F`, navy `#0D203
 
 Original logos are preserved. Carmen and eeco use supplied transparent assets. Alquimia and Kemet use CSS multiply blending to eliminate the white background in the rendered page without redrawing or recoloring the source artwork. The light project surfaces are deliberate and required for this blending treatment.
 
-Carmen is described as developing organic, nature-inspired health and personal-care products for a healthier lifestyle in the city, according to the founder’s brief. Regeneration is presented as a purpose and ambition. No product certifications, medical benefits, client results or measured environmental impact are claimed.
+The Carmen project card opens a collection of Siwa salt lamps, with original photographs, the story of their Egyptian origin, natural materials, ambient-light benefits and practical care information. Regeneration is presented as a purpose and ambition. No product certifications, medical benefits, client results or measured environmental impact are claimed.
 
 ## Validation
 
@@ -47,3 +47,9 @@ The Recycla ecosystem card replaces Alquimia and opens the showcase at `/recycla
 `recycla/page.css` and `recycla/page.js` provide the responsive page and keyboard-accessible story previews. `recycla/art/` contains exported original SVG covers and diagrams. The dependency-free build copies the whole Recycla directory into `dist/recycla/`. The eeco project card supports the existing English, Portuguese and Arabic language choices.
 
 ![Recycla showcase page](docs/recycla-page-preview.jpg)
+
+## Carmen — Siwa salt lamps
+
+The entire Carmen card opens a native dialog with a 15-photo carousel, previous/next controls, thumbnails, mouse dragging, native touch swiping and keyboard navigation (Left/Right, Home/End, Escape). The gallery does not advance automatically. English, Brazilian Portuguese and Egyptian Arabic include captions, image descriptions, controls, product copy and an enquiry link that carries the selected design into WhatsApp.
+
+The supplied photos are optimized as WebP files in `assets/carmen/`, with small thumbnails. The modal presents origin, materials, ambient-light benefits, facts and care instructions. Health or air-purification benefits are not promised; background sources are linked inside the dialog. Availability and electrical specifications are confirmed by enquiry. The existing Carmen logo and the other project cards are preserved.

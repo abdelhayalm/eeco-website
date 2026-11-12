@@ -143,6 +143,7 @@ if ('IntersectionObserver' in window) {
 // Native dialogs provide keyboard dismissal, focus containment and focus return.
 const serviceDialog = document.getElementById('service-dialog');
 const materialsDialog = document.getElementById('materials-dialog');
+const carmenDialog = document.getElementById('carmen-dialog');
 let quickServiceIndex = 0;
 const serviceKeys = ['strategyItem1','strategyItem2','strategyItem3','brandItem1','brandItem2','brandItem3','digitalItem1','digitalItem2','digitalItem3'];
 const whatsappNumber = '5511910088410';
@@ -165,7 +166,7 @@ document.querySelectorAll('[data-quick]').forEach(button => button.addEventListe
 }));
 document.querySelectorAll('[data-open-materials]').forEach(button => button.addEventListener('click', () => materialsDialog.showModal()));
 document.querySelectorAll('[data-close-dialog]').forEach(button => button.addEventListener('click', () => button.closest('dialog').close()));
-[serviceDialog, materialsDialog].forEach(dialog => dialog.addEventListener('click', event => {
+[serviceDialog, materialsDialog, carmenDialog].forEach(dialog => dialog.addEventListener('click', event => {
   if (event.target !== dialog) return;
   const bounds = dialog.getBoundingClientRect();
   if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
@@ -205,3 +206,111 @@ const orbitObserver = new IntersectionObserver(entries => entries.forEach(entry 
   entry.target.classList.toggle('is-visible', entry.isIntersecting);
 }), {threshold:.2});
 orbitObserver.observe(heroVisual);
+
+// Native touch scrolling and mouse dragging share one scroll-snap gallery.
+const lampTrack = document.getElementById('lamp-track');
+const lampSlides = [...lampTrack.querySelectorAll('.lamp-slide')];
+const lampThumbs = [...document.querySelectorAll('[data-lamp-index]')];
+const lampPrevious = document.querySelector('[data-lamp-step="-1"]');
+const lampNext = document.querySelector('[data-lamp-step="1"]');
+const lampCaption = document.getElementById('lamp-caption');
+const lampCount = document.getElementById('lamp-count');
+let lampIndex = 0;
+let lampDrag = null;
+let lampScrollTimer;
+
+function updateLampGallery() {
+  const words = copy[currentLanguage];
+  document.querySelectorAll('[data-lamp-alt]').forEach(image => {
+    image.alt = words.lampPhotos[Number(image.dataset.lampAlt)];
+  });
+  lampSlides.forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== lampIndex)));
+  lampThumbs.forEach((button, index) => {
+    button.setAttribute('aria-label', words.lampThumbnailLabel + words.lampPhotos[index]);
+    if (index === lampIndex) button.setAttribute('aria-current', 'true');
+    else button.removeAttribute('aria-current');
+  });
+  const position = String(lampIndex + 1).padStart(2, '0') + ' / ' + lampSlides.length;
+  if (lampCount.textContent !== position) lampCount.textContent = position;
+  lampCount.setAttribute('aria-label', words.lampCountLabel.replace('{current}', String(lampIndex + 1)).replace('{total}', String(lampSlides.length)));
+  lampCaption.textContent = words.lampPhotos[lampIndex];
+  lampPrevious.disabled = lampIndex === 0;
+  lampNext.disabled = lampIndex === lampSlides.length - 1;
+  document.querySelector('.lamp-contact').href = whatsappUrl(words.lampEnquiry + '\n\n' + words.lampSelected + words.lampPhotos[lampIndex]);
+  [lampIndex - 1, lampIndex, lampIndex + 1].forEach(index => {
+    if (lampSlides[index] && carmenDialog.open) lampSlides[index].querySelector('img').loading = 'eager';
+  });
+}
+
+function selectLamp(index, smooth = true) {
+  lampIndex = Math.max(0, Math.min(lampSlides.length - 1, index));
+  lampTrack.scrollTo({left: lampIndex * lampTrack.clientWidth, behavior: smooth && !reducedMotion.matches ? 'smooth' : 'instant'});
+  updateLampGallery();
+  const thumb = lampThumbs[lampIndex];
+  const strip = thumb.parentElement;
+  if (thumb.offsetLeft < strip.scrollLeft || thumb.offsetLeft + thumb.offsetWidth > strip.scrollLeft + strip.clientWidth) {
+    strip.scrollTo({left: Math.max(0, thumb.offsetLeft - strip.clientWidth / 2 + thumb.offsetWidth / 2), behavior: reducedMotion.matches ? 'instant' : 'smooth'});
+  }
+}
+
+document.querySelectorAll('[data-open-carmen]').forEach(button => button.addEventListener('click', () => {
+  carmenDialog.showModal();
+  selectLamp(lampIndex, false);
+}));
+document.querySelectorAll('[data-lamp-step]').forEach(button => button.addEventListener('click', () => selectLamp(lampIndex + Number(button.dataset.lampStep))));
+lampThumbs.forEach(button => button.addEventListener('click', () => selectLamp(Number(button.dataset.lampIndex))));
+lampTrack.addEventListener('keydown', event => {
+  let next;
+  if (event.key === 'ArrowRight') next = lampIndex + 1;
+  else if (event.key === 'ArrowLeft') next = lampIndex - 1;
+  else if (event.key === 'Home') next = 0;
+  else if (event.key === 'End') next = lampSlides.length - 1;
+  else return;
+  event.preventDefault();
+  selectLamp(next);
+});
+lampTrack.addEventListener('scroll', () => {
+  clearTimeout(lampScrollTimer);
+  lampScrollTimer = setTimeout(() => {
+    if (lampDrag || !carmenDialog.open || !lampTrack.clientWidth) return;
+    const nearest = Math.round(lampTrack.scrollLeft / lampTrack.clientWidth);
+    if (nearest !== lampIndex) {
+      lampIndex = Math.max(0, Math.min(lampSlides.length - 1, nearest));
+      updateLampGallery();
+    }
+  }, 110);
+}, {passive: true});
+lampTrack.addEventListener('pointerdown', event => {
+  if (event.pointerType !== 'mouse' || event.button !== 0) return;
+  lampDrag = {id: event.pointerId, x: event.clientX, scroll: lampTrack.scrollLeft};
+  lampTrack.classList.add('is-dragging');
+  lampTrack.setPointerCapture(event.pointerId);
+  event.preventDefault();
+});
+lampTrack.addEventListener('pointermove', event => {
+  if (!lampDrag || event.pointerId !== lampDrag.id) return;
+  lampTrack.scrollLeft = lampDrag.scroll - (event.clientX - lampDrag.x);
+});
+function finishLampDrag(event) {
+  if (!lampDrag || event.pointerId !== lampDrag.id) return;
+  const nearest = Math.round(lampTrack.scrollLeft / lampTrack.clientWidth);
+  lampDrag = null;
+  lampTrack.classList.remove('is-dragging');
+  if (lampTrack.hasPointerCapture(event.pointerId)) lampTrack.releasePointerCapture(event.pointerId);
+  selectLamp(nearest);
+}
+lampTrack.addEventListener('pointerup', finishLampDrag);
+lampTrack.addEventListener('pointercancel', finishLampDrag);
+lampTrack.addEventListener('lostpointercapture', event => { if (lampDrag) finishLampDrag(event); });
+if ('ResizeObserver' in window) new ResizeObserver(() => {
+  if (carmenDialog.open && !lampDrag) selectLamp(lampIndex, false);
+}).observe(lampTrack);
+document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', updateLampGallery));
+document.querySelector('.language-select').addEventListener('change', updateLampGallery);
+updateLampGallery();
+
+carmenDialog.addEventListener('close', () => {
+  clearTimeout(lampScrollTimer);
+  lampDrag = null;
+  lampTrack.classList.remove('is-dragging');
+});
