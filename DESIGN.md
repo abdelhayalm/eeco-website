@@ -10,7 +10,9 @@ This is an incremental refinement of the existing agency/movement website. Produ
 - The hero's curved plum surface, fine solar rings and supplied emblem express the existing brand. One short emblem gesture responds to pointer entry; no perpetual animation.
 - Mobile navigation uses a consistent geometric SVG stroke family with translated visible labels. The selected section is marked by aria-current and solar contrast.
 - Preserve complete project logos with object-fit: contain. Light surfaces support the original multiply treatment for Alquimia and Kemet.
-- Reveal related project/stage elements with short staggered entrances. Service switches animate content, keeping panel geometry stable. Keyboard-initiated switches are immediate; animations on the same element cancel before replacement.
+- Scroll entrances start just before viewport entry and stay readable throughout. Use a small independent translate rather than clipping or resizing cards, so hover transforms remain stable. Stagger only cards in the same desktop row; mobile entrances have no added delay. Already-visible content, deep links and fast scrolls settle immediately, and each entrance runs once.
+- Butterfly wings use their own SVG artwork bounds as the animation origin. Service switches use a short entrance without replaying the active tab. Keyboard switches remain immediate, and pointer/focus interaction settles motion on the activated element.
+- Scroll feedback reads geometry before writing styles, scopes the progress variable to its bar, and only updates navigation attributes when the active section changes.
 - Respect prefers-reduced-motion both initially and when changed during a session. Content must remain readable without animation or JavaScript.
 - Preserve native controls, service-tab keyboard/RTL behavior, visible focus, the skip link and existing language persistence. No decorative numbering, arrows in buttons or GitHub footer link.
 

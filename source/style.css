@@ -35,7 +35,7 @@ h1,h2,h3{text-wrap:balance}select{color-scheme:dark}svg{flex-shrink:0}
 [dir=rtl] .reading-progress{transform-origin:right}
 .main-nav a[aria-current]{color:var(--sun)}
 .main-nav a[aria-current]:after{transform:scaleX(1)}
-[data-reveal]{transform-origin:50% 15%}
+.growth-visual [data-reveal]{transform-box:fill-box;transform-origin:center}
 @media(max-width:760px){
   html{scroll-padding-top:92px}
   .shell{width:calc(100% - 40px)}
