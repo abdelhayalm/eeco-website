@@ -23,32 +23,55 @@ let activeSectionId = null;
 
 function animateIn(element, variant = 'rise', delay = 0) {
   if (!element) return;
+  if (reducedMotion.matches || typeof element.animate !== 'function' || element.contains(document.activeElement)) return;
+  // Entrances begin before viewport entry; translate leaves hover and SVG transforms intact.
+  const illustration = element.namespaceURI === 'http://www.w3.org/2000/svg';
+  const lift = illustration ? 8 : variant === 'unfold' ? 22 : variant === 'panel' ? 8 : 16;
+  let frames = [{opacity: .78, translate: `0 ${lift}px`}, {opacity: 1, translate: '0 0'}];
+  let duration = 620;
+  if (variant === 'unfold') {
+    frames[0].opacity = .84;
+    duration = 680;
+  } else if (variant === 'intro') {
+    frames[0].opacity = .72;
+    duration = 700;
+  } else if (variant === 'panel') {
+    duration = 300;
+  } else if (variant === 'art') {
+    frames = [{opacity: .8, scale: '.95', translate: '0 6px'}, {opacity: 1, scale: '1', translate: '0 0'}];
+    duration = 500;
+  } else if (variant === 'caption') {
+    frames = [{opacity: .8, translate: '0 3px'}, {opacity: 1, translate: '0 0'}];
+    duration = 180;
+  } else if (variant === 'wings') {
+    frames = [{opacity: .86, scale: '.9 1', translate: '0 6px'}, {opacity: 1, scale: '1 1', translate: '0 0'}];
+    duration = 780;
+  }
+  const interaction = ['panel', 'art', 'caption'].includes(variant);
+  const animation = playMotion(element, frames, {duration, delay, easing: 'cubic-bezier(.22,1,.36,1)'}, interaction ? 'eeco-detail-transition' : 'eeco-scroll-entrance', !interaction);
+  if (animation) element.dataset.entering = 'true';
+  return animation;
+}
+
+function playMotion(element, frames, timing, id, scroll = false) {
   const previous = panelAnimations.get(element);
   if (previous) previous.cancel();
-  if (reducedMotion.matches || typeof element.animate !== 'function' || element.contains(document.activeElement)) return;
-  // Keep content readable throughout. Individual translate leaves hover and SVG transforms intact.
-  const illustration = element.namespaceURI === 'http://www.w3.org/2000/svg';
-  const lift = illustration ? 6 : variant === 'unfold' ? 14 : variant === 'panel' ? 6 : 10;
-  let frames = [{opacity: .9, translate: `0 ${lift}px`}, {opacity: 1, translate: '0 0'}];
-  let duration = variant === 'panel' ? 240 : 500;
-  if (variant === 'unfold') {
-    frames[0].opacity = .94;
-    duration = 560;
-  } else if (variant === 'wings') {
-    frames = [{opacity: .92, scale: '.94 1', translate: '0 4px'}, {opacity: 1, scale: '1 1', translate: '0 0'}];
-    duration = 660;
-  }
-  const animation = element.animate(frames, {duration, delay, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'none'});
-  animation.id = variant === 'panel' ? 'eeco-service-switch' : 'eeco-scroll-entrance';
+  if (reducedMotion.matches || typeof element.animate !== 'function') return null;
+  const animation = element.animate(frames, {fill: 'none', ...timing});
+  animation.id = id;
   panelAnimations.set(element, animation);
   runningAnimations.add(animation);
-  if (variant !== 'panel') scrollAnimations.add(animation);
+  if (scroll) scrollAnimations.add(animation);
   const cleanUp = () => {
     runningAnimations.delete(animation);
     scrollAnimations.delete(animation);
-    if (panelAnimations.get(element) === animation) panelAnimations.delete(element);
+    if (panelAnimations.get(element) === animation) {
+      panelAnimations.delete(element);
+      delete element.dataset.entering;
+    }
   };
   animation.finished.then(cleanUp, cleanUp);
+  return animation;
 }
 
 function finishScrollAnimations() {
@@ -90,7 +113,10 @@ function selectService(tab, focus = false) {
     button.tabIndex = selected ? 0 : -1;
     const panel = document.getElementById(button.getAttribute('aria-controls'));
     panel.hidden = !selected;
-    if (selected && !focus) animateIn(panel.querySelector('.service-detail'), 'panel');
+    if (selected && !focus) {
+      animateIn(panel.querySelector('.service-detail'), 'panel');
+      animateIn(panel.querySelector('.service-art > :first-child'), 'art', 30);
+    }
   });
   if (focus) tab.focus();
   queueScrollUpdate();
@@ -200,7 +226,7 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
         const siblings = [...element.parentElement.children];
         const sameRowBefore = siblings.slice(0, siblings.indexOf(element))
           .filter(sibling => Math.abs(sibling.getBoundingClientRect().top - bounds.top) < 20).length;
-        delay = Math.min(sameRowBefore, 2) * 45;
+        delay = Math.min(sameRowBefore, 2) * 65;
       }
       animateIn(element, element.dataset.reveal, delay);
     });
@@ -217,6 +243,25 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
 const serviceDialog = document.getElementById('service-dialog');
 const materialsDialog = document.getElementById('materials-dialog');
 const carmenDialog = document.getElementById('carmen-dialog');
+function openDialog(dialog) {
+  if (dialog.open) return;
+  dialog.showModal();
+  playMotion(dialog, [{opacity: .8, translate: '0 14px', scale: '.99'}, {opacity: 1, translate: '0 0', scale: '1'}], {duration: 320, easing: 'cubic-bezier(.22,1,.36,1)'}, 'eeco-dialog-open');
+}
+function closeDialog(dialog) {
+  if (!dialog.open || dialog.dataset.closing === 'true') return;
+  const animation = playMotion(dialog, [{opacity: 1, translate: '0 0'}, {opacity: 0, translate: '0 8px'}], {duration: 150, easing: 'ease-in', fill: 'forwards'}, 'eeco-dialog-close');
+  if (!animation) {
+    dialog.close();
+    return;
+  }
+  dialog.dataset.closing = 'true';
+  animation.finished.then(() => {
+    dialog.close();
+    animation.cancel();
+    delete dialog.dataset.closing;
+  }, () => { delete dialog.dataset.closing; });
+}
 let quickServiceIndex = 0;
 const serviceKeys = ['strategyItem1','strategyItem2','strategyItem3','brandItem1','brandItem2','brandItem3','digitalItem1','digitalItem2','digitalItem3'];
 const whatsappNumber = '5511910088410';
@@ -235,15 +280,21 @@ document.querySelectorAll('[data-quick]').forEach(button => button.addEventListe
   quickServiceIndex = Number(button.dataset.quick);
   document.getElementById('quick-icon').replaceChildren(button.querySelector('svg').cloneNode(true));
   updateQuickCard();
-  serviceDialog.showModal();
+  openDialog(serviceDialog);
 }));
-document.querySelectorAll('[data-open-materials]').forEach(button => button.addEventListener('click', () => materialsDialog.showModal()));
-document.querySelectorAll('[data-close-dialog]').forEach(button => button.addEventListener('click', () => button.closest('dialog').close()));
-[serviceDialog, materialsDialog, carmenDialog].forEach(dialog => dialog.addEventListener('click', event => {
-  if (event.target !== dialog) return;
-  const bounds = dialog.getBoundingClientRect();
-  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
-}));
+document.querySelectorAll('[data-open-materials]').forEach(button => button.addEventListener('click', () => openDialog(materialsDialog)));
+document.querySelectorAll('[data-close-dialog]').forEach(button => button.addEventListener('click', () => closeDialog(button.closest('dialog'))));
+[serviceDialog, materialsDialog, carmenDialog].forEach(dialog => {
+  dialog.addEventListener('cancel', event => {
+    event.preventDefault();
+    closeDialog(dialog);
+  });
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const bounds = dialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog(dialog);
+  });
+});
 const materialForm = document.getElementById('materials-form');
 function updateRequest() {
   const data = new FormData(materialForm);
@@ -277,10 +328,24 @@ updateNewContent();
 const heroVisual = document.querySelector('.hero-visual');
 if (heroVisual && 'IntersectionObserver' in window) {
   const orbitObserver = new IntersectionObserver(entries => entries.forEach(entry => {
-    entry.target.classList.toggle('is-visible', entry.isIntersecting);
+    entry.target.classList.toggle('is-visible', entry.isIntersecting && !document.hidden);
   }), {threshold:.2});
   orbitObserver.observe(heroVisual);
 }
+// A short welcome sequence; section links and restored scroll positions stay immediate.
+if (window.scrollY < 12 && (!location.hash || location.hash === '#home')) {
+  document.querySelectorAll('.hero-copy > *').forEach((element, index) => animateIn(element, 'intro', index * 55));
+  animateIn(heroVisual, 'unfold', 80);
+}
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    runningAnimations.forEach(animation => animation.finish());
+    heroVisual?.classList.remove('is-visible');
+  } else if (heroVisual) {
+    const bounds = heroVisual.getBoundingClientRect();
+    heroVisual.classList.toggle('is-visible', bounds.bottom > 0 && bounds.top < window.innerHeight);
+  }
+});
 
 // Native touch scrolling and mouse dragging share one scroll-snap gallery.
 const lampTrack = document.getElementById('lamp-track');
@@ -308,7 +373,11 @@ function updateLampGallery() {
   const position = String(lampIndex + 1).padStart(2, '0') + ' / ' + lampSlides.length;
   if (lampCount.textContent !== position) lampCount.textContent = position;
   lampCount.setAttribute('aria-label', words.lampCountLabel.replace('{current}', String(lampIndex + 1)).replace('{total}', String(lampSlides.length)));
-  lampCaption.textContent = words.lampPhotos[lampIndex];
+  const caption = words.lampPhotos[lampIndex];
+  if (lampCaption.textContent !== caption) {
+    lampCaption.textContent = caption;
+    if (carmenDialog.open) animateIn(lampCaption, 'caption');
+  }
   lampPrevious.disabled = lampIndex === 0;
   lampNext.disabled = lampIndex === lampSlides.length - 1;
   document.querySelector('.lamp-contact').href = whatsappUrl(words.lampEnquiry + '\n\n' + words.lampSelected + words.lampPhotos[lampIndex]);
@@ -329,7 +398,7 @@ function selectLamp(index, smooth = true) {
 }
 
 document.querySelectorAll('[data-open-carmen]').forEach(button => button.addEventListener('click', () => {
-  carmenDialog.showModal();
+  openDialog(carmenDialog);
   selectLamp(lampIndex, false);
 }));
 document.querySelectorAll('[data-lamp-step]').forEach(button => button.addEventListener('click', () => selectLamp(lampIndex + Number(button.dataset.lampStep))));
