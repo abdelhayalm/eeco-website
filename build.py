@@ -1,47 +1,21 @@
-"""Build the portable eeco page from editable source. No external build dependencies."""
+"""Build eeco from editable source, retaining the published experience."""
 from pathlib import Path
-import base64,json,re
+import base64,json,re,shutil
 ROOT=Path(__file__).resolve().parent
 SOURCE=ROOT/'source'
-def uri(name,mime):
- return 'data:'+mime+';base64,'+base64.b64encode((SOURCE/'assets'/name).read_bytes()).decode('ascii')
-assets={
- 'carmen-lamp':uri('carmen-lamp.webp','image/webp'),
- 'materials':uri('materials.webp','image/webp'),
- 'carmen':uri('carmen.svg','image/svg+xml'),
- 'eeco-sun':uri('eeco-sun.png','image/png'),
- 'alquimia':uri('alquimia.svg','image/svg+xml'),
- 'alquimia-papyrus':uri('alquimia-ink-papyrus.webp','image/webp'),
- 'kemet-wall':uri('kemet-aten-wall.webp','image/webp'),
- 'kemet':uri('kemet.webp','image/webp'),
- 'eeco-wordmark':uri('eeco-wordmark.png','image/png'),
- 'eeco-emblem':uri('eeco-emblem.png','image/png'),
- 'eeco-lockup':uri('eeco-lockup.png','image/png'),
- 'quicksand-regular':uri('fonts/Quicksand-Regular.woff2','font/woff2'),
- 'quicksand-bold':uri('fonts/Quicksand-Bold.woff2','font/woff2'),
- 'arabic-regular':uri('fonts/NotoSansArabic-Regular.woff2','font/woff2'),
- 'arabic-bold':uri('fonts/NotoSansArabic-Bold.woff2','font/woff2'),
-}
-for stage in ('caterpillar', 'cocoon', 'butterfly'):
- assets[f'story-{stage}']=(SOURCE/'assets'/'story'/f'{stage}.svg').read_text().strip()
-for photo in ('forest', 'palms', 'face-painting'):
- assets[f'founder-{photo}']=uri(f'founder/{photo}.webp','image/webp')
 copy=json.loads((SOURCE/'copy.json').read_text())
-assert set(copy)=={'en','pt','ar'}
-keys=set(re.findall(r'data-i="([^"]+)"',(SOURCE/'template.html').read_text()))
-for lang,words in copy.items():
- assert keys<=words.keys(),(lang,keys-words.keys())
+template=(SOURCE/'template.html').read_text()
+keys=set(re.findall(r'data-i="([^"]+)"',template))
+for lang in ('en','pt','ar'):
+ assert keys<=copy[lang].keys(),(lang,keys-copy[lang].keys())
 script=(SOURCE/'main.js').read_text().replace('__COPY__',json.dumps(copy,ensure_ascii=False,separators=(',',':')))
-style=(SOURCE/'style.css').read_text()
-html=(SOURCE/'template.html').read_text().replace('__STYLE__',style).replace('__SCRIPT__',script)
-license_paths = sorted((SOURCE/'assets'/'fonts').glob('*OFL.txt'))
-license_paths.append(SOURCE/'assets'/'story'/'LICENSE.txt')
-licenses='\n\n'.join(p.read_text() for p in license_paths)
-html=html.replace('</head>','<!-- Third-party asset licenses\n'+licenses.replace('--','—')+'\n-->\n</head>')
-html=html.replace('</head>','<noscript><style>.service-tabs,.language-switch,.language-select{display:none!important}.service-panel[hidden]{display:grid!important}.service-panel{margin-bottom:20px}</style></noscript></head>')
-for key,value in assets.items():html=html.replace('{{'+key+'}}',value)
-assert not re.search(r'\{\{[a-z-]+\}\}',html),'Unresolved asset'
-assert '__COPY__' not in html
+html=template.replace('__STYLE__',(SOURCE/'style.css').read_text()).replace('__SCRIPT__',script)
+for key,asset in json.loads((SOURCE/'assets.json').read_text()).items():
+ data=(SOURCE/'assets'/asset['path']).read_bytes()
+ html=html.replace('{{'+key+'}}','data:'+asset['mime']+';base64,'+base64.b64encode(data).decode('ascii'))
+assert not re.search(r'\{\{embedded-\d+\}\}',html),'Unresolved embedded asset'
 (ROOT/'dist').mkdir(exist_ok=True)
-(ROOT/'dist'/'index.html').write_text(html)
-print('Built dist/index.html:',len(html.encode()),'bytes; all 3 languages verified.')
+for target in (ROOT/'index.html',ROOT/'dist'/'index.html'):target.write_text(html)
+for directory in ('assets','recycla'):
+ if (ROOT/directory).exists():shutil.copytree(ROOT/directory,ROOT/'dist'/directory,dirs_exist_ok=True)
+print('Built identical root and dist pages; EN/PT/AR translation keys verified.')

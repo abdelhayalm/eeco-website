@@ -1,0 +1,66 @@
+{
+  "embedded-0": {
+    "path": "fonts/Quicksand-Regular.woff2",
+    "mime": "font/woff2"
+  },
+  "embedded-1": {
+    "path": "fonts/NotoSansArabic-Regular.woff2",
+    "mime": "font/woff2"
+  },
+  "embedded-2": {
+    "path": "eeco-emblem.png",
+    "mime": "image/png"
+  },
+  "embedded-3": {
+    "path": "carmen-lamp.webp",
+    "mime": "image/webp"
+  },
+  "embedded-4": {
+    "path": "founder/forest.webp",
+    "mime": "image/webp"
+  },
+  "embedded-5": {
+    "path": "eeco-wordmark.png",
+    "mime": "image/png"
+  },
+  "embedded-6": {
+    "path": "alquimia.svg",
+    "mime": "image/svg+xml"
+  },
+  "embedded-7": {
+    "path": "founder/palms.webp",
+    "mime": "image/webp"
+  },
+  "embedded-8": {
+    "path": "fonts/Quicksand-Bold.woff2",
+    "mime": "font/woff2"
+  },
+  "embedded-9": {
+    "path": "eeco-sun.png",
+    "mime": "image/png"
+  },
+  "embedded-10": {
+    "path": "kemet.webp",
+    "mime": "image/webp"
+  },
+  "embedded-11": {
+    "path": "kemet-aten-wall.webp",
+    "mime": "image/webp"
+  },
+  "embedded-12": {
+    "path": "alquimia-ink-papyrus.webp",
+    "mime": "image/webp"
+  },
+  "embedded-13": {
+    "path": "carmen.svg",
+    "mime": "image/svg+xml"
+  },
+  "embedded-14": {
+    "path": "fonts/NotoSansArabic-Bold.woff2",
+    "mime": "font/woff2"
+  },
+  "embedded-15": {
+    "path": "eeco-lockup.png",
+    "mime": "image/png"
+  }
+}
