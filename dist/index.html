@@ -457,8 +457,8 @@ h4.ecosystem-note{font-size:clamp(20px,2.1vw,27px);font-weight:700;line-height:1
 .carmen-cover>img,.carmen-cover-pair img{width:100%;height:100%;min-height:0;object-fit:cover;display:block}
 .carmen-cover-main{object-position:center 57%}
 .carmen-cover-pair{display:grid;grid-template-rows:1fr 1fr;gap:5px;min-height:0}
-.carmen-cover-brand{position:absolute;inset-inline-start:10px;top:10px;padding:5px 10px;border-radius:9px;background:#17120edb;display:flex;align-items:center}
-.carmen-cover-brand img{width:78px;height:50px;object-fit:contain}
+.carmen-cover-brand{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.carmen-cover-brand img{width:clamp(118px,45%,182px);height:auto;object-fit:contain;filter:drop-shadow(0 0 1px #fff7dc) drop-shadow(0 0 7px #fff0c7e6) drop-shadow(0 4px 10px #4b240c80)}
 .carmen-gallery-badge{position:absolute;inset-inline-end:10px;bottom:10px;display:flex;align-items:center;gap:6px;border:1px solid #fff5e630;border-radius:20px;background:#21180edf;color:#fff4e4;padding:6px 10px;font-size:10px;font-weight:700}
 .carmen-card-title{display:block;font-size:31px;margin:7px 0 20px;line-height:1.2;letter-spacing:-.03em}
 .carmen-card-body{font-size:13px;line-height:1.9;color:#eee4d6;margin-bottom:26px}
