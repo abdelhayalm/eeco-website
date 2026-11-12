@@ -27,11 +27,6 @@
     "carmenTitle": "Natural care.<br>Urban life.",
     "carmenBody": "A brand developing organic, nature-inspired products for health and personal care. Carmen brings a healthier, more natural lifestyle into the rhythm of city living.",
     "carmenPurpose": "Reconnecting daily care with nature.",
-    "alquimiaVisit": "Visit Álquimia",
-    "alquimiaTag": "Learn a language. Enter a culture.",
-    "alquimiaTitle": "Arabic opens<br>a world.",
-    "alquimiaBody": "A school connecting people with Arabic and Egyptian culture through enjoyable learning, real practice and community. Language becomes a way to belong.",
-    "alquimiaPurpose": "Growing understanding through shared learning.",
     "kemetVisit": "Visit Kemet",
     "kemetTag": "Made by hand. Carried by stories.",
     "kemetTitle": "Egyptian craft.<br>Living heritage.",
@@ -169,7 +164,12 @@
         "Launch with a plan to learn. We define what to observe, collect feedback and use it to decide what to improve next.",
         "A launch checklist, feedback approach and an improvement cycle guided by meaningful signals."
       ]
-    ]
+    ],
+    "recyclaVisit": "Explore Recycla stories and download for Android",
+    "recyclaTag": "Reuse. Recycle. Regenerate.",
+    "recyclaTitle": "New cycles.<br>In your hands.",
+    "recyclaBody": "An old tee becomes a tote. Paper scraps become a new sheet. Illustrated stories turn everyday materials into practical discoveries, one small action at a time.",
+    "recyclaPurpose": "Explore the stories. Get Recycla for Android."
   },
   "pt": {
     "skip": "Pular para o conteúdo",
@@ -203,11 +203,6 @@
     "carmenTitle": "Cuidado natural.<br>Vida urbana.",
     "carmenBody": "Uma marca dedicada ao desenvolvimento de produtos orgânicos, inspirados na natureza, para a saúde e o cuidado pessoal. Carmen aproxima um estilo de vida mais saudável e natural do ritmo da cidade.",
     "carmenPurpose": "Reconectar o cuidado diário com a natureza.",
-    "alquimiaVisit": "Visitar Álquimia",
-    "alquimiaTag": "Aprenda um idioma. Viva uma cultura.",
-    "alquimiaTitle": "O árabe abre<br>um mundo.",
-    "alquimiaBody": "Uma escola que conecta pessoas ao árabe e à cultura egípcia com aprendizado prazeroso, prática real e comunidade. O idioma se torna um caminho de pertencimento.",
-    "alquimiaPurpose": "Cultivar a compreensão pelo aprendizado compartilhado.",
     "kemetVisit": "Visitar Kemet",
     "kemetTag": "Feito à mão. Cheio de histórias.",
     "kemetTitle": "Artesanato egípcio.<br>Herança viva.",
@@ -341,7 +336,12 @@
         "Lance com um plano para aprender. Definimos o que observar, recolhemos feedback e usamos os aprendizados para decidir as próximas melhorias.",
         "Um checklist de lançamento, uma abordagem de feedback e um ciclo de melhoria com indicadores relevantes."
       ]
-    ]
+    ],
+    "recyclaVisit": "Conhecer as histórias da Recycla e baixar para Android",
+    "recyclaTag": "Reusar. Reciclar. Regenerar.",
+    "recyclaTitle": "Novos ciclos.<br>Nas suas mãos.",
+    "recyclaBody": "Uma camiseta vira bolsa. Retalhos de papel ganham outra folha. Histórias ilustradas transformam materiais do cotidiano em descobertas práticas, uma pequena ação por vez.",
+    "recyclaPurpose": "Explore as histórias. Baixe a Recycla para Android."
   },
   "ar": {
     "skip": "انتقل للمحتوى",
@@ -375,11 +375,6 @@
     "carmenTitle": "عناية من الطبيعة.<br>وسط حياة المدينة.",
     "carmenBody": "براند بيطوّر منتجات عضوية مستلهمة من الطبيعة للعناية بالصحة والعناية الشخصية. كارمن بتقرّب أسلوب حياة صحي وطبيعي من إيقاع الحياة في المدينة.",
     "carmenPurpose": "نرجّع علاقتنا بالطبيعة من خلال العناية اليومية.",
-    "alquimiaVisit": "زور موقع Álquimia",
-    "alquimiaTag": "اتعلّم لغة. وعيش ثقافة.",
-    "alquimiaTitle": "العربي بيفتح<br>لك عالم.",
-    "alquimiaBody": "مدرسة بتوصل الناس باللغة العربية والثقافة المصرية من خلال تعلّم ممتع، وممارسة حقيقية، ومجتمع بيشاركهم التجربة. اللغة بتبقى طريق للتواصل والانتماء.",
-    "alquimiaPurpose": "نوسّع فهمنا لبعض بالتعلّم والمشاركة.",
     "kemetVisit": "زور موقع Kemet",
     "kemetTag": "شغل إيدين. وروح حكايات.",
     "kemetTitle": "حِرفة مصرية.<br>وتراث عايش.",
@@ -513,6 +508,11 @@
         "نطلق ومعانا خطة نتعلّم بيها. نحدد إيه اللي نتابعه، ونجمع الملاحظات، ونستخدمها لتحديد التحسينات الجاية.",
         "قائمة تجهيز للإطلاق وطريقة لجمع الملاحظات ودورة تحسين مبنية على مؤشرات مفيدة."
       ]
-    ]
+    ],
+    "recyclaVisit": "اكتشف حكايات Recycla وحمّل التطبيق للأندرويد",
+    "recyclaTag": "استخدم تاني. دوّر. جدّد.",
+    "recyclaTitle": "حياة جديدة.<br>بإيديك.",
+    "recyclaBody": "تيشيرت قديم يبقى شنطة، وقصاصات الورق تبقى ورقة جديدة. حكايات مصوّرة بتفتح لك أفكار عملية للمواد اللي حواليك، خطوة صغيرة كل مرة.",
+    "recyclaPurpose": "اكتشف الحكايات وحمّل Recycla للأندرويد."
   }
 }

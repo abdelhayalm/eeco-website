@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="illustration" viewBox="0 0 520 300" fill="none" aria-hidden="true">
+      <rect width="520" height="300" fill="#1a2828"/>
+      <path d="M0 60h520M0 120h520M0 180h520M0 240h520M60 0v300M120 0v300M180 0v300M240 0v300M300 0v300M360 0v300M420 0v300M480 0v300" stroke="#b8c8bd" stroke-opacity=".13"/>
+      <circle cx="260" cy="150" r="113" stroke="#b8c8bd" stroke-opacity=".21"/>
+      <circle cx="260" cy="150" r="87" stroke="#b8c8bd" stroke-opacity=".18" stroke-dasharray="2 5"/>
+      <path d="M25 39V25h14m442 0h14v14M25 261v14h14m442 0h14v-14" stroke="#b8c8bd" stroke-opacity=".65" stroke-width="1.5"/>
+      <g transform="translate(260 142) rotate(0) scale(1.37)"><path d="m-90 0 112-61 72 46-110 61z" fill="#b8c8bd" stroke="#111b1e" stroke-width="4" stroke-linejoin="round"/>
+    <path d="m-69 0 91-48 52 33-89 49z" fill="#c1e68e" stroke="#111b1e" stroke-width="2"/>
+    <path d="m-56-5 52 33m-39-40 52 33m-39-40 52 33m-39-40 52 33M-4-33l52 33M9-40l52 33m-115 18 91-49m-78 57 91-49m-79 56 91-49" stroke="#111b1e" stroke-width="1.2" opacity=".42"/>
+    <path d="M-50 36v11m26 2v13m32-15v11m28-23v13" stroke="#fcbf01" stroke-width="3" stroke-linecap="round"/></g>
+    </svg>

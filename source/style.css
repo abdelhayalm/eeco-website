@@ -348,36 +348,36 @@ h1,h2,h3{text-wrap:balance}select{color-scheme:dark}svg{flex-shrink:0}
 }
 
 /* The project artwork fades into the card surface behind the copy. */
-.project:is(.alquimia,.kemet){
+.project.kemet{
   --project-surface:#141a26;
   --project-fade:#141a26db;
   background:linear-gradient(180deg,#151b2655,var(--project-fade) 42%,var(--project-surface) 74%),var(--project-art) center top / 100% auto no-repeat var(--project-surface);
   color:var(--alabaster);
   text-decoration:none;
 }
-.project.alquimia{--project-art:url("{{embedded-12}}")}
+}")}
 .project.kemet{
   --project-art:url("{{embedded-11}}");
   --project-surface:#191b1d;
   --project-fade:#191b1ddb;
 }
-.project:is(.alquimia,.kemet) .project-logo{
+.project.kemet .project-logo{
   height:150px;
   margin-block:0 18px;
 }
-.project:is(.alquimia,.kemet) .project-logo img{
+.project.kemet .project-logo img{
   width:min(90%,230px);
   height:100%;
 }
-.project:is(.alquimia,.kemet) .eyebrow{color:#e6c981}
-.project:is(.alquimia,.kemet) .project-copy>p:not(.eyebrow){color:#ebe5d6}
-.project:is(.alquimia,.kemet) .project-purpose{
+.project.kemet .eyebrow{color:#e6c981}
+.project.kemet .project-copy>p:not(.eyebrow){color:#ebe5d6}
+.project.kemet .project-purpose{
   border-color:#e6c98155;
   color:var(--alabaster)!important;
 }
 .project[href]:focus-visible{outline:3px solid var(--sun);outline-offset:4px}
 @media (max-width:760px){
-  .project:is(.alquimia,.kemet) .project-logo{height:150px;margin-block:0 14px}
+  .project.kemet .project-logo{height:150px;margin-block:0 14px}
 }
 /* A fixed nucleus stays inside every electron orbit. */
 .hero-visual{background:transparent;border:0;border-radius:0;padding:24px;overflow:visible;min-height:380px;justify-content:center}
@@ -428,3 +428,14 @@ dialog::backdrop{background:#01111dc9;backdrop-filter:blur(8px)}.dialog-inner{pa
 h4.ecosystem-note{font-size:clamp(20px,2.1vw,27px);font-weight:700;line-height:1.5;letter-spacing:-.02em;margin:0 0 30px}
 @media(max-width:760px){.hero h1{font-size:clamp(40px,8.5vw,60px)}.hero-footnote h3{font-size:23px}h4.ecosystem-note{text-align:center}.materials-wordmark{width:min(100%,220px)}}
 .footer-bottom p{display:block;line-height:1.8;align-self:center}.footer-bottom p a{display:inline;min-height:0;color:var(--alabaster)}
+
+/* Recycla keeps its own identity within the eeco project-card system. */
+.project.recycla{position:relative;isolation:isolate;overflow:hidden;background:#111B1E;color:#FFFFF0;text-decoration:none}
+.project.recycla::before{content:"";position:absolute;inset:0;z-index:0;background:url("/recycla/art/transformations.svg") center top/cover no-repeat;opacity:.24;pointer-events:none}
+.project.recycla>.project-logo,.project.recycla>.project-copy{position:relative;z-index:1}
+.project.recycla .project-logo{height:150px;margin:0 0 18px}
+.project.recycla .project-logo img{width:min(90%,240px);height:100%;object-fit:contain}
+.project.recycla .eyebrow{color:#C1E68E}
+.project.recycla .project-copy>p:not(.eyebrow){color:#FFFFF0}
+.project.recycla .project-purpose{border-color:#B8C8BD66;color:#C1E68E!important}
+.project.recycla:focus-visible{outline-color:#C1E68E}

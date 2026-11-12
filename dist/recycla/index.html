@@ -1,32 +1,101 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111b1e">
-<meta name="description" content="Recycla by eeco turns everyday leftovers into three practical reuse ideas. Download the Android preview.">
-<title>Recycla by eeco — Give everyday things a second life</title>
-<link rel="icon" href="logo.svg" type="image/svg+xml">
-<style>
-@font-face{font-family:Quicksand;src:url('Quicksand-Regular.woff2')}@font-face{font-family:Quicksand;src:url('Quicksand-Bold.woff2');font-weight:700}
-:root{color-scheme:dark;--ink:#111b1e;--gold:#fcbf01;--green:#c1e68e;--cream:#fffff0;--soft:#c2d0c5;--line:#43564b}
-*{box-sizing:border-box}body{margin:0;background:var(--ink);color:var(--cream);font-family:Quicksand,system-ui,sans-serif}a{color:inherit}a:focus-visible{outline:2px solid var(--gold);outline-offset:5px}header,main,footer{width:min(1120px,calc(100% - 48px));margin-inline:auto}header{padding:23px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);font-size:.86rem;font-weight:700}header a{color:var(--gold);text-decoration:none}header span{color:var(--soft)}main{display:grid;grid-template-columns:1.25fr minmax(260px,.75fr);align-items:center;gap:clamp(36px,7vw,94px);padding:clamp(36px,7vw,92px) 0}.copy{min-width:0}.brand{display:block;width:192px;height:auto}.eyebrow{color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.16em;margin:26px 0 12px}h1{font-size:clamp(2.85rem,6.9vw,6rem);line-height:.99;letter-spacing:-.065em;margin:0}h1 span{color:var(--green)}.body{font-size:clamp(1.06rem,2vw,1.28rem);line-height:1.65;color:var(--soft);max-width:39ch;margin:22px 0}.button{display:inline-flex;gap:24px;align-items:center;justify-content:center;background:var(--green);color:var(--ink);padding:15px 23px;min-height:54px;border-radius:14px;font-weight:700;text-decoration:none}.button:hover{background:#d5f1ad}.meta{color:var(--soft);font-size:.82rem;margin:13px 0 0;line-height:1.6}figure{margin:0;position:relative;padding:25px 12px 12px;border-radius:120px 120px 30px 30px;background:radial-gradient(ellipse at 50% 38%,#3c5b3d,#23382e 65%,#203029);border:1px solid var(--line);text-align:center}.screen{display:block;width:min(100%,285px);height:auto;margin:auto;border:8px solid #0b1214;border-radius:23px;box-shadow:0 18px 32px #0710128a}figcaption{font-size:.78rem;color:var(--soft);padding:12px 4px 2px}footer{display:flex;gap:12px;justify-content:space-between;border-top:1px solid var(--line);padding:20px 0;color:var(--soft);font-size:.8rem}footer strong{color:var(--gold)}
-@media(max-width:700px){header,main,footer{width:calc(100% - 36px)}main{grid-template-columns:1fr;text-align:center;gap:28px}.brand,.body{margin-inline:auto}.button{width:min(100%,320px)}figure{width:min(100%,330px);margin-inline:auto}footer{justify-content:center;flex-wrap:wrap}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111B1E">
+  <meta name="description" content="Conheça a Recycla: histórias ilustradas sobre reuso, reciclagem e regeneração. Explore uma prévia e baixe o aplicativo para Android.">
+  <meta property="og:title" content="Recycla — O próximo ciclo começa nas suas mãos.">
+  <meta property="og:description" content="Uma camiseta vira bolsa. Retalhos de papel ganham outra folha. Aprenda com os materiais e coloque novas ideias em prática.">
+  <meta property="og:type" content="website">
+  <title>Recycla — O próximo ciclo começa nas suas mãos.</title>
+  <link rel="icon" href="/recycla/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/recycla/page.css">
+  <script src="/recycla/page.js" defer></script>
 </head>
 <body>
-<header><a href="/">← Back to eeco</a><span>ANDROID PREVIEW</span></header>
-<main>
-  <div class="copy">
-    <img class="brand" src="logo.svg" alt="Recycla" width="210" height="54">
-    <p class="eyebrow">A SECOND LIFE FOR EVERYDAY THINGS</p>
-    <h1>See what it <span>could become.</span></h1>
-    <p class="body">Photograph an item or add it by name. Tell Recycla what you want to make and get up to three reuse ideas, with tools and steps.</p>
-    <a class="button" href="Recycla-Android.apk" download>Download for Android <span aria-hidden="true">↓</span></a>
-    <p class="meta">Android 9+ · 64-bit ARM · 7.5 MB APK<br>Open Recycla and choose <strong>Set up app software</strong> to get started.</p>
-  </div>
-  <figure><img class="screen" src="interface.webp" alt="Recycla interface with camera, photo library, and item entry controls" width="375" height="752"><figcaption>Inside Recycla</figcaption></figure>
-</main>
-<footer><span>Built for everyday reuse.</span><span>A project by <strong>eeco</strong></span></footer>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header wrap">
+    <a class="back-link" href="/#ecosystem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7"/></svg>Voltar à eeco</a>
+    <a class="creator" href="/" aria-label="Criado pela eeco"><span>Criado pela</span><img src="/recycla/eeco-wordmark.png" width="795" height="200" alt="eeco"></a>
+  </header>
+  <main id="conteudo">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <img class="brand" src="/recycla/logo.svg" width="472" height="179" alt="Recycla — The Resurrection of Things">
+        <h1 id="hero-title">O próximo ciclo começa nas suas mãos.</h1>
+        <p class="lead">Uma camiseta vira bolsa. Retalhos de papel ganham outra folha. Histórias ilustradas para descobrir o que os materiais ainda podem ser — e colocar a ideia em prática.</p>
+        <div class="hero-actions"><a class="button primary" href="/recycla/Recycla-Android.apk" download="Recycla-Android.apk">Baixar para Android<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></svg></a><a class="text-link" href="#historias">Experimentar uma história</a></div>
+        <p class="download-note">Android 9 ou superior. Aplicativo em inglês.<br>Download direto do APK · Funciona offline.</p>
+      </div>
+      <div class="hero-art" aria-label="Prévia ilustrada: uma camiseta ganha uma nova vida como bolsa">
+        <div class="small-cover paper-cover"><img src="/recycla/art/paper-cover.svg" width="520" height="300" alt="Retalhos de papel se transformam em uma nova folha"><span>Os materiais têm outras histórias.</span></div>
+        <div class="feature-cover">
+          <div class="cover-top"><span>Reuso, na prática</span><span>História 03</span></div>
+          <img src="/recycla/art/tote-cover.svg" width="520" height="300" alt="Uma camiseta de algodão ao lado da bolsa feita com seu tecido" fetchpriority="high">
+          <div class="cover-caption"><h2>Uma camiseta.<br>Outra forma de levar.</h2><a href="#historias" aria-label="Explorar a prévia da história da camiseta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
+        </div>
+        <div class="small-cover leaf-cover"><img src="/recycla/art/leaf-cover.svg" width="520" height="300" alt="Folhas secas se tornam cobertura para o solo"><span>O jardim também ensina.</span></div>
+      </div>
+    </section>
+
+    <section class="story-section" id="historias" aria-labelledby="stories-title">
+      <div class="wrap story-layout">
+        <div class="story-intro">
+          <p class="section-label">Abra uma possibilidade</p>
+          <h2 id="stories-title">Uma ideia<br>por cartão.</h2>
+          <p>Conheça três histórias do aplicativo. Cada prévia passa pelo material, pela transformação e por um novo uso.</p>
+          <div class="story-choices" role="group" aria-label="Escolher uma história">
+            <button class="story-choice" type="button" data-story="tee" aria-pressed="true"><img src="/recycla/art/tote-cover.svg" width="520" height="300" alt=""><span><strong>De camiseta a bolsa</strong><small>Reuso · história de 5 min</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
+            <button class="story-choice" type="button" data-story="paper" aria-pressed="false"><img src="/recycla/art/paper-cover.svg" width="520" height="300" alt="" loading="lazy"><span><strong>De retalhos a papel</strong><small>Reciclagem · história de 6 min</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
+            <button class="story-choice" type="button" data-story="leaves" aria-pressed="false"><img src="/recycla/art/leaf-cover.svg" width="520" height="300" alt="" loading="lazy"><span><strong>Das folhas ao solo</strong><small>Regeneração · história de 5 min</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
+          </div>
+          <p class="small-note">Trechos adaptados para o português. O passo a passo completo está no aplicativo.</p>
+        </div>
+        <div class="reader" aria-label="Prévia interativa das histórias">
+          <div class="reader-top"><span id="reader-stage">Caterpillar · descobrir</span><span id="reader-count">1 de 3</span></div>
+          <img id="reader-art" class="reader-art" src="/recycla/art/tee.svg" width="520" height="300" alt="Camiseta de algodão ainda com o tecido em bom estado" loading="lazy">
+          <div class="reader-content">
+            <h3 id="reader-title">Olhe além da gola.</h3>
+            <p id="reader-body">A gola cedeu, mas o tecido da frente e das costas continua firme. Essas duas partes podem ganhar outra forma: os lados de uma bolsa.</p>
+          </div>
+          <div class="reader-bottom"><div class="reader-progress" aria-hidden="true"><span class="active"></span><span></span><span></span></div><div class="reader-controls"><button type="button" id="reader-prev" aria-label="Cartão anterior" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7"/></svg></button><button type="button" id="reader-next" aria-label="Próximo cartão"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button></div></div>
+          <p class="sr-only" id="reader-announcement" aria-live="polite" aria-atomic="true"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey-section wrap" aria-labelledby="journey-title">
+      <div class="section-heading"><h2 id="journey-title">Da descoberta<br>à vida real.</h2><p>O aprendizado cresce quando você experimenta. Cada história segue quatro etapas — e termina com um convite para aplicar o que aprendeu.</p></div>
+      <ol class="journey">
+        <li><img src="/recycla/art/caterpillar.svg" width="48" height="48" alt="" loading="lazy"><h3>Caterpillar</h3><p>Conheça o material e a história que ele carrega.</p></li>
+        <li><img src="/recycla/art/cocoon.svg" width="48" height="48" alt="" loading="lazy"><h3>Cocoon</h3><p>Entenda a transformação e teste uma ideia.</p></li>
+        <li><img src="/recycla/art/butterfly.svg" width="48" height="48" alt="" loading="lazy"><h3>Butterfly</h3><p>Descubra o novo ciclo e prepare sua prática.</p></li>
+        <li><img src="/recycla/art/flying.svg" width="48" height="48" alt="" loading="lazy"><h3>Flying</h3><p>Aplique no cotidiano e registre sua experiência.</p></li>
+      </ol>
+      <p class="practice-note">Ler é uma etapa. O Flying acontece quando você confirma uma aplicação real.</p>
+    </section>
+
+    <section class="more-section wrap" aria-labelledby="more-title">
+      <div class="more-copy"><h2 id="more-title">Novos materiais.<br>Novas relações.</h2><p>Sete histórias para aprender com o que está perto: tecido, papel, folhas, uma pequena horta e os conhecimentos que conectam pessoas e paisagens.</p><p class="small-note">Leitura e progresso ficam no aparelho. Sem conta para começar; os links das fontes precisam de internet.</p></div>
+      <div class="more-stories">
+        <article><img src="/recycla/art/print-cover.svg" width="520" height="300" alt="Algodão e camiseta com estampa artesanal" loading="lazy"><div><h3>Algodão, tinta e uma segunda vida</h3><p>Materiais, origem e uma primeira estampa.</p></div></article>
+        <article><img src="/recycla/art/permaculture-cover.svg" width="520" height="300" alt="Mapa de relações e canteiro de uma horta" loading="lazy"><div><h3>Permacultura 101</h3><p>Observe o espaço. Desenhe as conexões.</p></div></article>
+        <article><img src="/recycla/art/bioconstruction-cover.svg" width="520" height="300" alt="Blocos de terra e corte de uma casa" loading="lazy"><div><h3>Bioconstrução 101</h3><p>Uma conversa entre material, clima e abrigo.</p></div></article>
+        <article><img src="/recycla/art/agroforestry-cover.svg" width="520" height="300" alt="Cacau e camadas de uma agrofloresta" loading="lazy"><div><h3>Agrofloresta e conhecimentos indígenas</h3><p>Florestas com histórias vivas e fontes reconhecidas.</p></div></article>
+      </div>
+    </section>
+
+    <section class="download-section wrap" id="baixar" aria-labelledby="download-title">
+      <img src="/recycla/icon.svg" width="80" height="80" alt="" loading="lazy">
+      <h2 id="download-title">Leve a próxima<br>história com você.</h2>
+      <p>Baixe a Recycla e escolha por onde começar.</p>
+      <a class="button primary" href="/recycla/Recycla-Android.apk" download="Recycla-Android.apk">Baixar para Android<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></svg></a>
+      <p class="download-note">Versão 0.4.0 · Android 9 ou superior · Aplicativo em inglês</p>
+      <details class="install-help"><summary>Como instalar o APK?</summary><p>Abra o arquivo baixado no Android. Se o sistema solicitar, permita que o navegador usado para o download instale este aplicativo. Depois da instalação, você pode desativar essa permissão. As histórias já vêm no app.</p></details>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><span>© 2026 Recycla · The Resurrection of Things</span><a class="creator" href="/" aria-label="Um projeto da eeco"><span>Um projeto da</span><img src="/recycla/eeco-wordmark.png" width="795" height="200" alt="eeco"></a></footer>
+  <noscript><p class="noscript-note wrap">A primeira prévia está disponível acima. Para alternar entre os cartões, ative o JavaScript ou baixe o aplicativo.</p></noscript>
 </body>
 </html>
