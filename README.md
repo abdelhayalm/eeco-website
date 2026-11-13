@@ -42,7 +42,7 @@ The latest pass adds a curved brand stage, a short pointer-triggered emblem gest
 
 [Open Recycla in Sites](https://eeco-by-hapi.hapi-alquimias.chatgpt.site/recycla/) · [Open eeco](https://eeco-by-hapi.hapi-alquimias.chatgpt.site)
 
-The Recycla ecosystem card replaces Alquimia and opens the showcase at `/recycla/`. The Kemet card retains its original artwork, logo, copy, layout and destination from the version before the Recycla addition. The new page uses the original logo, palette, system typography and native story illustrations from Recycla-App, source revision `5b80b9b662d7963679ccea4fc28e6cc6c3fba203`. Portuguese previews faithfully adapt three bundled stories; the Android application itself is in English. The signed 0.4.0 APK includes seven stories and works offline. Its bundled story catalog was compared with the referenced repository.
+The Recycla ecosystem card replaces Alquimia and opens the showcase at `/recycla/`. The Kemet card retains its original artwork, logo, copy, layout and destination from the version before the Recycla addition. The new page uses the original logo, palette, system typography and native story illustrations from Recycla-App, source revision `5b80b9b662d7963679ccea4fc28e6cc6c3fba203`. Portuguese previews faithfully adapt three bundled stories. The signed Android 0.5.0 APK includes seven stories and 108 cards offline, defaults to Brazilian Portuguese, and supports persistent PT / EN language switching. Its bundled story catalog was compared with the referenced repository.
 
 `recycla/page.css` and `recycla/page.js` provide the responsive page and keyboard-accessible story previews. `recycla/art/` contains exported original SVG covers and diagrams. The dependency-free build copies the whole Recycla directory into `dist/recycla/`. The eeco project card supports the existing English, Portuguese and Arabic language choices.
 
@@ -53,3 +53,9 @@ The Recycla ecosystem card replaces Alquimia and opens the showcase at `/recycla
 The entire Carmen card opens a native dialog with a 15-photo carousel, previous/next controls, thumbnails, mouse dragging, native touch swiping and keyboard navigation (Left/Right, Home/End, Escape). The gallery does not advance automatically. English, Brazilian Portuguese and Egyptian Arabic include captions, image descriptions, controls, product copy and an enquiry link that carries the selected design into WhatsApp.
 
 The supplied photos are optimized as WebP files in `assets/carmen/`, with small thumbnails. The modal presents origin, materials, ambient-light benefits, facts and care instructions. Health or air-purification benefits are not promised; background sources are linked inside the dialog. Availability and electrical specifications are confirmed by enquiry. The existing Carmen logo and the other project cards are preserved.
+
+## Android 0.5.0 download
+
+Both `/recycla/` and `/Recycla/` open the Recycla page. Download buttons serve the signed APK directly from `/recycla/Recycla-Android.apk?v=0.5.0`. The version query avoids reusing an older cached APK. Source and distribution copies contain the same signed bytes.
+
+The signed release and public verification metadata are retained in [Recycla-App releases/v0.5.0](https://github.com/abdelhayalm/Recycla-App/tree/main/releases/v0.5.0). Signing secrets are kept outside both repositories. Versions up to 0.4.0 have a different signing identity; the page explains the required fresh installation and loss of old local progress.

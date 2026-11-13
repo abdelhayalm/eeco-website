@@ -19,3 +19,8 @@ for target in (ROOT/'index.html',ROOT/'dist'/'index.html'):target.write_text(htm
 for directory in ('assets','recycla'):
  if (ROOT/directory).exists():shutil.copytree(ROOT/directory,ROOT/'dist'/directory,dirs_exist_ok=True)
 print('Built identical root and dist pages; EN/PT/AR translation keys verified.')
+
+# Preserve the requested /Recycla address as well as the original lowercase path.
+for base in (ROOT, ROOT/'dist'):
+ (base/'Recycla').mkdir(exist_ok=True)
+ shutil.copy2(ROOT/'recycla'/'index.html', base/'Recycla'/'index.html')
