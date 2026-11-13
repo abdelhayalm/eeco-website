@@ -1,0 +1,52 @@
+{
+  "site_version": 28,
+  "project_id": "appgprj_6aebf03e21248191898ebb78ec9077ec",
+  "version_id": "appgprj_6aebf03e21248191898ebb78ec9077ec~appgver_c01ecd8e12c88191b64d7bb6ca1b3427",
+  "source_commit_sha": "e7e2a779d4d292e3df2a4f2c77a8a63b6926782d",
+  "source_committed_at": "2026-11-13T09:00:17-03:00",
+  "deployment_id": "appgdep_6af6fbe9bc3c8191b10d53d7fe296071",
+  "deployment_status": "succeeded",
+  "deployment_status_updated_at": "2026-11-13T09:01:00.277587-03:00",
+  "timezone": "America/Sao_Paulo",
+  "url": "https://eeco-by-hapi.hapi-alquimias.chatgpt.site",
+  "access_at_verification": "owner-only",
+  "static_directory": "dist",
+  "archive": {
+    "format": "tar",
+    "sha256": "3f506a177f5220c3ced669097744bef5cfe00114f3c03830097916e15379a18b",
+    "size_bytes": 9205760,
+    "file_count": 69
+  },
+  "github_repository": "https://github.com/abdelhayalm/eeco-website",
+  "github_branch": "main",
+  "github_previous_commit": "56bc3a8eaf826f23fa3bdf6eb569dee1cc35a59e",
+  "documentation_prepared_at": "2026-11-13T19:11:08-03:00",
+  "runtime_manifest": "docs/releases/v28-sha256.txt",
+  "previous_published_version": {
+    "number": 27,
+    "version_id": "appgprj_6aebf03e21248191898ebb78ec9077ec~appgver_1f48cd2104e88191a8c91005289487cf",
+    "source_commit_sha": "8bda317d6b14e08360935e5fe4d07b6357eeb24c",
+    "deployment_id": "appgdep_6af6ec83720c81918719cc64fbfae903",
+    "status": "succeeded",
+    "deployment_status_updated_at": "2026-11-13T07:55:17.901264-03:00"
+  },
+  "verification": {
+    "source_comparison": "Runtime files compared byte-for-byte with clean published Sites checkout at source_commit_sha. Documentation additions are subsequent.",
+    "checks": [
+      "python3 build.py",
+      "node --check source/main.js",
+      "node --check recycla/page.js",
+      "python3 scripts/verify_release.py",
+      "sha256sum -c docs/releases/v28-sha256.txt"
+    ],
+    "new_browser_visual_review": false,
+    "custom_domain_verified": false,
+    "phone_apk_install_verified": false
+  },
+  "notes": [
+    "Horário de publicação obtido do estado terminal confirmado da implantação.",
+    "SHA GitHub é independente do SHA Sites; consultar histórico deste arquivo para identificar o commit documental.",
+    "Arquivo de publicação contém somente o pacote distribuído; manifesto cobre também fontes e cópias locais.",
+    "Não houve nova publicação visual nesta sincronização documental."
+  ]
+}

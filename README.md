@@ -1,69 +1,66 @@
-# eeco
+# eeco — site institucional
 
-**Empowering evolutionary ecosystems.** A creative agency and movement founded by Hapi.
+Site de Hapi para a eeco, uma agência de soluções inovadoras em tecnologia e negócios, orientada por regeneração, sustentabilidade e impacto ambiental positivo. Impressão e personalização são uma linha de serviços da agência.
 
-A responsive, self-contained website in English, Brazilian Portuguese and Egyptian Arabic. Its story connects the agency’s strategy, brand and digital work with Carmen, Alquimia and Kemet.
+**Referência publicada: versão 28 · 13/11/2026, 09:01:00 · America/Sao_Paulo (UTC−03:00).**
 
-## Project structure
+[Site](https://eeco-by-hapi.hapi-alquimias.chatgpt.site) · [Recycla](https://eeco-by-hapi.hapi-alquimias.chatgpt.site/recycla/) · [Histórico](CHANGELOG.md) · [Ficha da versão 28](docs/releases/v28.md)
 
-- `source/template.html` — semantic markup with readable English fallback.
-- `source/style.css` — brand palette, shared control styles, responsive layouts, RTL and reduced-motion support.
-- `source/copy.json` — all three languages, metadata and accessibility labels.
-- `source/main.js` — language switching, scroll-triggered reveals, active-section navigation and keyboard-accessible service tabs.
-- `source/assets/` — supplied brand assets and locally embedded fonts, including font licenses.
-- `build.py` — dependency-free Python builder.
-- `dist/index.html` — portable build with embedded assets, fonts and font licenses.
+Este repositório guarda código editável, distribuição e documentação. A publicação é gerenciada pelo Sites; um commit no GitHub, por si só, não publica o site. O número 28 pertence ao histórico do Sites e é independente da versão 0.5.0 do APK Recycla.
 
-## Build and preview
+## Começar ou retomar
 
-Run `python3 build.py`, then serve `dist/` with any static web server. The page requires no runtime dependencies, third-party scripts, external font requests or backend.
+```sh
+git clone https://github.com/abdelhayalm/eeco-website.git
+cd eeco-website
+python3 scripts/verify_release.py
+python3 build.py
+node --check source/main.js
+node --check recycla/page.js
+python3 scripts/verify_release.py
+python3 -m http.server 8000 --directory dist
+```
 
-The GitHub repository also has the identical generated page at `index.html` for hosts that serve from the repository root. The deployment output is `dist/`.
+Abra `http://localhost:8000`. A construção usa a biblioteca padrão do Python 3; Node.js verifica a sintaxe JavaScript. Não há instalação npm nem backend do formulário.
 
-## Brand and content
+| Caminho | Responsabilidade |
+| --- | --- |
+| `source/template.html` | Estrutura e fallback em inglês |
+| `source/style.css` | Identidade, responsividade, RTL e movimento |
+| `source/copy.json` | Conteúdo EN, PT-BR e árabe egípcio |
+| `source/main.js` | Idiomas, navegação, diálogos, vídeo e pedido WhatsApp |
+| `source/assets/`, `source/assets.json` | Fontes, licenças e imagens incorporadas |
+| `assets/` | Galeria Carmen, identidade e mídia externa ao HTML |
+| `recycla/` | Vitrine Recycla, ilustrações e APK |
+| `Recycla/index.html` | Entrada alternativa com inicial maiúscula |
+| `build.py` | Gera HTML raiz/dist e copia os recursos |
+| `dist/` | Saída estática para publicação |
+| `.openai/hosting.json` | Identidade do Site e diretório estático |
+| `scripts/verify_release.py` | Verificação de integridade da referência |
+| `docs/releases/v28-sha256.txt` | Manifesto SHA-256 de código e distribuição |
 
-Solar yellow `#FCBF01`, dark green-black `#111B1E`, plum `#26161F`, navy `#0D203B`, deep blue `#01111D` and alabaster `#FFFFF0` follow the supplied eeco identity. Quicksand is used for Latin text and Noto Sans Arabic for Arabic.
+## Estado funcional da versão 28
 
-Original logos are preserved. Carmen and eeco use supplied transparent assets. Alquimia and Kemet use CSS multiply blending to eliminate the white background in the rendered page without redrawing or recoloring the source artwork. The light project surfaces are deliberate and required for this blending treatment.
+- Interface EN/PT/AR com persistência do idioma e suporte RTL.
+- Formulário eeco materiais com nome, projeto, material, quantidade, local, data e observações. Impressão, personalização e arte são tratadas na reunião, conforme a nota antes do botão.
+- Vídeo final de 33 segundos e capa fornecidos por Hapi; controles nativos e carregamento ao abrir. O navegador decide se permite som; há botão alternativo. Fechar pausa e reinicia o vídeo; ocultar a aba pausa.
+- O formulário abre o WhatsApp com o pedido para o visitante revisar e enviar; não armazena leads nem agenda reuniões automaticamente.
+- Carmen: galeria de 15 fotos, toque, arraste, teclado e miniaturas.
+- Recycla: prévias e APK assinado 0.5.0 em `/recycla/` e `/Recycla/`. A assinatura Android é mantida no projeto Recycla-App.
 
-The Carmen project card opens a collection of Siwa salt lamps, with original photographs, the story of their Egyptian origin, natural materials, ambient-light benefits and practical care information. Regeneration is presented as a purpose and ambition. No product certifications, medical benefits, client results or measured environmental impact are claimed.
+## Documentação
 
-## Validation
+- [Desenvolvimento, publicação e recuperação](docs/OPERACAO.md)
+- [Versão 28: origem, alterações e validação](docs/releases/v28.md)
+- [Metadados da publicação](docs/releases/v28.json)
+- [Sistema visual](DESIGN.md)
+- [Galeria Carmen](docs/carmen-gallery.md)
+- [Histórico de alterações](CHANGELOG.md)
 
-The redesign was reviewed in the browser in all three languages within 320, 390, 768 and 1280px frames, without horizontal document overflow. The mobile interface uses a centered app bar, a native language selector, a fixed four-section navigation dock and compact service tabs. Section numbers and the GitHub footer link have been removed from all languages. On-scroll entrances use the Web Animations API and IntersectionObserver once per element; content remains readable without animation support. Reduced-motion preferences are respected, including changes while the page is open. Desktop project-logo rendering was visually reviewed. The builder checks translation coverage and unresolved assets; anchor targets and JavaScript syntax were also checked.
+Logos originais preservados; Quicksand e Noto Sans Arabic locais com licenças incluídas. A orientação regenerativa não equivale a uma certificação ou a resultados ambientais medidos.
 
-The site preserves its existing private audience. GitHub is a source copy; this repository does not claim automatic deployment integration.
+## Limites da conferência
 
-## Interface refinement — November 2026
+A publicação foi confirmada na URL do Sites. O domínio independente `eeco.abdelhayalm.com` não foi validado nesta atualização. O acesso atual do Sites é restrito ao proprietário, sem alteração nesta atualização documental.
 
-The latest pass adds a curved brand stage, a short pointer-triggered emblem gesture, geometric icons in the mobile dock, related-element reveal staggering, a scroll-linked process line, complete Kemet logo containment, and immediate keyboard service switches. See DESIGN.md for the preserved visual system and selected design references. Source and both generated HTML outputs stay in sync.
-
-## Recycla showcase
-
-[Open Recycla in Sites](https://eeco-by-hapi.hapi-alquimias.chatgpt.site/recycla/) · [Open eeco](https://eeco-by-hapi.hapi-alquimias.chatgpt.site)
-
-The Recycla ecosystem card replaces Alquimia and opens the showcase at `/recycla/`. The Kemet card retains its original artwork, logo, copy, layout and destination from the version before the Recycla addition. The new page uses the original logo, palette, system typography and native story illustrations from Recycla-App, source revision `5b80b9b662d7963679ccea4fc28e6cc6c3fba203`. Portuguese previews faithfully adapt three bundled stories. The signed Android 0.5.0 APK includes seven stories and 108 cards offline, defaults to Brazilian Portuguese, and supports persistent PT / EN language switching. Its bundled story catalog was compared with the referenced repository.
-
-`recycla/page.css` and `recycla/page.js` provide the responsive page and keyboard-accessible story previews. `recycla/art/` contains exported original SVG covers and diagrams. The dependency-free build copies the whole Recycla directory into `dist/recycla/`. The eeco project card supports the existing English, Portuguese and Arabic language choices.
-
-![Recycla showcase page](docs/recycla-page-preview.jpg)
-
-## Carmen — Siwa salt lamps
-
-The entire Carmen card opens a native dialog with a 15-photo carousel, previous/next controls, thumbnails, mouse dragging, native touch swiping and keyboard navigation (Left/Right, Home/End, Escape). The gallery does not advance automatically. English, Brazilian Portuguese and Egyptian Arabic include captions, image descriptions, controls, product copy and an enquiry link that carries the selected design into WhatsApp.
-
-The supplied photos are optimized as WebP files in `assets/carmen/`, with small thumbnails. The modal presents origin, materials, ambient-light benefits, facts and care instructions. Health or air-purification benefits are not promised; background sources are linked inside the dialog. Availability and electrical specifications are confirmed by enquiry. The existing Carmen logo and the other project cards are preserved.
-
-## Android 0.5.0 download
-
-Both `/recycla/` and `/Recycla/` open the Recycla page. Download buttons serve the signed APK directly from `/recycla/Recycla-Android.apk?v=0.5.0`. The version query avoids reusing an older cached APK. Source and distribution copies contain the same signed bytes.
-
-The signed release and public verification metadata are retained in [Recycla-App releases/v0.5.0](https://github.com/abdelhayalm/Recycla-App/tree/main/releases/v0.5.0). Signing secrets are kept outside both repositories. Versions up to 0.4.0 have a different signing identity; the page explains the required fresh installation and loss of old local progress.
-
-## eeco materiais video enquiry
-
-The eeco materiais card retains the original eeco logo mask, rounded brand type and pale yellow (#FFFF98). Its native dialog places the supplied 33-second promotional video on the left and the existing enquiry form on the right. Narrow screens stack the video above the form. The MP4 retains its original H.264/AAC streams; fast-start metadata enables progressive playback. It is requested on opening, with preload disabled on the page.
-
-Opening the card requests playback with sound within the visitor’s click gesture. Native playback, volume and fullscreen controls remain available, and clicking the picture toggles play/pause. A translated play button appears if the browser blocks playback. Closing the dialog or hiding the browser tab pauses the video; closing resets it for the next opening. Browsers still control whether sound playback is permitted. The materials form and WhatsApp request remain unchanged except for the Portuguese brand name.
-
-The materials card and enquiry dialog use the owner-supplied transparent `assets/eeco-materiais-logo.png` lockup unchanged.
+Os checks desta atualização cobrem construção, sintaxe, traduções, recursos, cópias geradas e hashes. Não representam uma nova auditoria visual em todos os dispositivos nem certificação de acessibilidade. Veja a ficha da versão para a evidência e o ponto de retomada.

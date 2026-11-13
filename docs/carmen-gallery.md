@@ -1,17 +1,17 @@
-# Carmen — Siwa salt lamp collection
+# Carmen — coleção de luminárias de sal de Siwa
 
-15 original photographs supplied by Hapi on 12 November 2026. Visual content is unchanged; WebP derivatives and small thumbnails keep the gallery lightweight. No generated product imagery is used.
+15 fotografias originais fornecidas por Hapi em 12/11/2026. O conteúdo visual foi preservado; versões WebP e miniaturas reduzem o peso da galeria. As imagens dos produtos não foram geradas por IA.
 
-## Content evidence
+## Referências do conteúdo
 
-- Siwa salt origin: https://www.fondazioneslowfood.com/en/ark-of-taste-slow-food/siwa-salt/
-- Siwa craft and cultural context: https://tourism-villages.unwto.org/en/villages/siwa/
-- Halite composition, formation, solubility: https://commonminerals.esci.umn.edu/minerals-g-m/halite
-- Evidence on salt-lamp health claims: https://health.clevelandclinic.org/are-there-any-health-benefits-to-himalayan-salt-lamps
+- Origem do sal de Siwa: https://www.fondazioneslowfood.com/en/ark-of-taste-slow-food/siwa-salt/
+- Artesanato e contexto cultural de Siwa: https://tourism-villages.unwto.org/en/villages/siwa/
+- Composição, formação e solubilidade da halita: https://commonminerals.esci.umn.edu/minerals-g-m/halite
+- Evidência sobre alegações de saúde das luminárias: https://health.clevelandclinic.org/are-there-any-health-benefits-to-himalayan-salt-lamps
 
-Materials, designs and lit appearance are also described from the supplied collection photos. Coloured pieces are described only as decorative crystals; their composition and the origin of their colours are not assumed. The copy does not claim certification, energy savings, guaranteed sleep benefits, air purification, therapeutic effects, stock, measurements, prices or delivery commitments.
+Materiais, formatos e aparência acesa também foram descritos a partir das fotos fornecidas. Peças coloridas são descritas apenas como cristais decorativos, sem presumir sua composição ou a origem da cor. Os textos não prometem certificações, economia de energia, benefícios garantidos para o sono, purificação do ar, efeitos terapêuticos, estoque, medidas, preços ou prazos de entrega. Estas referências foram registradas na elaboração original; não foram reavaliadas nesta atualização documental.
 
-## Photographs
+## Correspondência das fotografias
 
 - `siwa-sphere.webp` ← `IMG-20230910-WA0004(1).jpg`
 - `siwa-flame.webp` ← `IMG-20230904-WA0054(1).jpg`

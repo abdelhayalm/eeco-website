@@ -353,7 +353,7 @@ const materialForm = document.getElementById('materials-form');
 function updateRequest() {
   const data = new FormData(materialForm);
   const words = copy[currentLanguage];
-  const fields = [['customer','fieldName'],['business','fieldBusiness'],['material','fieldMaterial'],['quantity','fieldQuantity'],['printing','fieldPrinting'],['artwork','fieldArtwork'],['location','fieldLocation'],['deadline','fieldDeadline'],['notes','fieldNotes']];
+  const fields = [['customer','fieldName'],['business','fieldBusiness'],['material','fieldMaterial'],['quantity','fieldQuantity'],['location','fieldLocation'],['deadline','fieldDeadline'],['notes','fieldNotes']];
   const lines = fields.map(([name,key]) => {
     const control = materialForm.elements.namedItem(name);
     const value = control.tagName === 'SELECT' && control.value ? control.selectedOptions[0].textContent : String(data.get(name) || '').trim();
