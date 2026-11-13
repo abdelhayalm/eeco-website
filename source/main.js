@@ -12,8 +12,6 @@ const progressBar = document.querySelector('.reading-progress');
 const growthStages = document.querySelector('.growth-stages');
 const growthScenes = [...document.querySelectorAll('.growth-scene')];
 const visibleGrowthScenes = new Set();
-const growthMotionButton = document.querySelector('[data-growth-motion]');
-let growthMotionPaused = false;
 let currentLanguage = 'en';
 let scrollFramePending = false;
 const panelAnimations = new WeakMap();
@@ -90,14 +88,8 @@ function finishMotionAt(target) {
 }
 
 function updateGrowthMotion() {
-  const canMove = !growthMotionPaused && !reducedMotion.matches && !document.hidden;
+  const canMove = !reducedMotion.matches && !document.hidden;
   growthScenes.forEach(scene => scene.classList.toggle('is-moving', canMove && visibleGrowthScenes.has(scene)));
-  if (growthMotionButton) {
-    growthMotionButton.hidden = !('IntersectionObserver' in window);
-    growthMotionButton.disabled = reducedMotion.matches;
-    const label = reducedMotion.matches ? 'growthMotionReduced' : growthMotionPaused ? 'growthMotionPlay' : 'growthMotionPause';
-    growthMotionButton.textContent = copy[currentLanguage][label];
-  }
 }
 
 function setLanguage(lang) {
@@ -257,10 +249,6 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
 }
 
 // Creature motion continues while its illustration is visible, independently of scroll entrances.
-growthMotionButton?.addEventListener('click', () => {
-  growthMotionPaused = !growthMotionPaused;
-  updateGrowthMotion();
-});
 if ('IntersectionObserver' in window) {
   const growthObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -306,9 +294,7 @@ function updateQuickCard() {
   const words = copy[currentLanguage];
   const title = words[serviceKeys[quickServiceIndex]];
   document.getElementById('quick-title').textContent = title;
-  document.getElementById('quick-description').textContent = words.serviceDetails[quickServiceIndex][0];
-  document.getElementById('quick-deliverable').textContent = words.serviceDetails[quickServiceIndex][1];
-  document.getElementById('quick-contact').href = whatsappUrl(words.contactCta + ' — ' + title);
+  document.getElementById('quick-description').textContent = words.serviceDetails[quickServiceIndex].join(' ');
 }
 document.querySelectorAll('[data-quick]').forEach(button => button.addEventListener('click', () => {
   quickServiceIndex = Number(button.dataset.quick);

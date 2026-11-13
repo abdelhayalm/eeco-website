@@ -537,9 +537,6 @@ dialog[data-closing=true]::backdrop{animation:eeco-backdrop-out 150ms ease-in bo
 }
 
 /* Living process illustrations. Only visible artwork runs; text and layout remain still. */
-.growth-motion-toggle{display:inline-flex;align-items:center;min-height:44px;margin-top:22px;padding:9px 17px;border:1px solid #fffff04d;border-radius:12px;background:transparent;color:var(--alabaster);font-size:12px;font-weight:700;line-height:1.5;transition:background 200ms,border-color 200ms}
-.growth-motion-toggle:hover:not(:disabled){background:#fffff00c;border-color:var(--sun)}
-.growth-motion-toggle:disabled{opacity:.65}
 .growth-scene{--growth-play-state:paused}
 .growth-scene.is-moving{--growth-play-state:running}
 @media(prefers-reduced-motion:no-preference){

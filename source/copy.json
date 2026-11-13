@@ -100,8 +100,6 @@
     "contactCta": "Let’s talk about your idea",
     "closeDialog": "Close",
     "quickLabel": "Explore a solution",
-    "quickOutcome": "What we can work on together",
-    "quickCta": "Let’s explore this together",
     "formTitle": "What would you like to create?",
     "formIntro": "Share a few details. We’ll help you explore materials, printing options and a quote.",
     "fieldName": "Your name *",
@@ -243,10 +241,7 @@
       "A carved flower bowl with blue decorative crystals",
       "Curved salt lamp glowing against a simple backdrop"
     ],
-    "lampChoosePhoto": "Choose a photo",
-    "growthMotionPause": "Pause animation",
-    "growthMotionPlay": "Play animation",
-    "growthMotionReduced": "Motion reduced"
+    "lampChoosePhoto": "Choose a photo"
   },
   "pt": {
     "skip": "Pular para o conteúdo",
@@ -349,8 +344,6 @@
     "contactCta": "Vamos conversar sobre sua ideia",
     "closeDialog": "Fechar",
     "quickLabel": "Explore uma solução",
-    "quickOutcome": "O que podemos desenvolver juntos",
-    "quickCta": "Vamos explorar juntos",
     "formTitle": "O que você quer criar?",
     "formIntro": "Conte alguns detalhes. Ajudamos você a explorar materiais, opções de impressão e um orçamento.",
     "fieldName": "Seu nome *",
@@ -492,10 +485,7 @@
       "Tigela em forma de flor com cristais decorativos azuis",
       "Luminária curva de sal iluminada sobre fundo simples"
     ],
-    "lampChoosePhoto": "Escolha uma foto",
-    "growthMotionPause": "Pausar animação",
-    "growthMotionPlay": "Reproduzir animação",
-    "growthMotionReduced": "Movimento reduzido"
+    "lampChoosePhoto": "Escolha uma foto"
   },
   "ar": {
     "skip": "انتقل للمحتوى",
@@ -598,8 +588,6 @@
     "contactCta": "خلّينا نتكلم عن فكرتك",
     "closeDialog": "إغلاق",
     "quickLabel": "اكتشف الحل",
-    "quickOutcome": "نقدر نشتغل على إيه سوا",
-    "quickCta": "خلّينا نستكشف ده سوا",
     "formTitle": "نفسك تعمل إيه؟",
     "formIntro": "شاركنا تفاصيل بسيطة، ونساعدك تختار الخامة والطباعة ونعمل لك عرض سعر.",
     "fieldName": "اسمك *",
@@ -741,9 +729,6 @@
       "طبق على شكل وردة ببلورات زرقاء للزينة",
       "أباجورة ملح منحنية ومنوّرة قدام خلفية بسيطة"
     ],
-    "lampChoosePhoto": "اختار صورة",
-    "growthMotionPause": "إيقاف الحركة",
-    "growthMotionPlay": "تشغيل الحركة",
-    "growthMotionReduced": "الحركة مخفّضة"
+    "lampChoosePhoto": "اختار صورة"
   }
 }
