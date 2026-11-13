@@ -321,6 +321,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <p class="eyebrow solar-text" data-i="approachEyebrow">Transformation is a process</p>
         <h2 id="approach-title" data-i="approachTitle">Nothing living<br>starts fully formed.</h2>
         <p class="growth-intro-copy" data-i="approachIntro">At eeco, ideas grow like living things. Curiosity feeds them, careful work gives them shape, and the people they reach help them evolve.</p>
+        <button type="button" class="growth-motion-toggle" data-growth-motion data-i="growthMotionPause" hidden>Pause animation</button>
       </div>
       <div class="growth-stages">
       <article class="growth-scene growth-scene--caterpillar" aria-labelledby="growth-caterpillar-title">
@@ -369,6 +370,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <path d="M161 319c66-58 185-112 345-112" stroke-width="1" opacity=".38"/>
   </g>
   <g data-reveal="rise">
+    <g class="growth-caterpillar-motion" data-growth-part="">
     <g fill="none" stroke="#c7d891" stroke-width="5" stroke-linecap="round">
       <path d="M206 274q-3 12 7 16m41-25q-2 13 10 16m43-35q-2 13 11 16m34-41q2 10 13 10"/>
       <path d="M390 138q-7-29-29-40m47 34q7-25 26-37" stroke-width="3"/>
@@ -378,11 +380,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
       <circle cx="434" cy="95" r="5"/>
     </g>
     <g fill="url(#story-caterpillar-fill)" stroke="#223f31" stroke-width="2.3">
-      <ellipse cx="202" cy="267" rx="26" ry="20" transform="rotate(-10 202 267)"/>
-      <ellipse cx="239" cy="259" rx="29" ry="24" transform="rotate(-16 239 259)"/>
-      <ellipse cx="277" cy="245" rx="31" ry="26" transform="rotate(-19 277 245)"/>
-      <ellipse cx="314" cy="226" rx="32" ry="29" transform="rotate(-24 314 226)"/>
-      <ellipse cx="348" cy="202" rx="32" ry="31" transform="rotate(-32 348 202)"/>
+      <ellipse class="growth-caterpillar-segment" data-growth-part="" style="--segment:0" cx="202" cy="267" rx="26" ry="20" transform="rotate(-10 202 267)"/>
+      <ellipse class="growth-caterpillar-segment" data-growth-part="" style="--segment:1" cx="239" cy="259" rx="29" ry="24" transform="rotate(-16 239 259)"/>
+      <ellipse class="growth-caterpillar-segment" data-growth-part="" style="--segment:2" cx="277" cy="245" rx="31" ry="26" transform="rotate(-19 277 245)"/>
+      <ellipse class="growth-caterpillar-segment" data-growth-part="" style="--segment:3" cx="314" cy="226" rx="32" ry="29" transform="rotate(-24 314 226)"/>
+      <ellipse class="growth-caterpillar-segment" data-growth-part="" style="--segment:4" cx="348" cy="202" rx="32" ry="31" transform="rotate(-32 348 202)"/>
       <ellipse cx="376" cy="171" rx="31" ry="31" transform="rotate(-33 376 171)"/>
       <ellipse cx="407" cy="148" rx="32" ry="33" transform="rotate(19 407 148)"/>
     </g>
@@ -393,6 +395,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <circle cx="420.5" cy="143.5" r="1.4" fill="#ffffec"/>
     <path d="M418 158q5 4 10-2" fill="none" stroke="#35543c" stroke-width="1.6" stroke-linecap="round"/>
   </g>
+    </g>
   <g fill="none" stroke="#bfd9a5" stroke-width="1" opacity=".35">
     <path d="M79 376h121m237 0h124m-20-220v32m-16-16h32"/>
     <circle cx="501" cy="322" r="17"/>
@@ -440,6 +443,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <circle cx="419" cy="327" r="2.5" opacity=".6"/>
   </g>
   <g data-reveal="rise">
+    <g class="growth-cocoon-motion" data-growth-part="">
     <path d="M329 86c-2 15 5 29-2 48" fill="none" stroke="#ffe0ad" stroke-width="2.2" stroke-linecap="round"/>
     <path d="M327 132c-31 14-62 50-68 91-8 57 20 106 62 124 41-18 67-70 64-119-2-41-24-78-58-96Z" fill="url(#story-silk)" stroke="#ffdbad" stroke-width="2.3"/>
     <g clip-path="url(#story-silk-edge)" fill="none" stroke-linecap="round">
@@ -449,6 +453,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </g>
     <circle cx="327" cy="132" r="5" fill="#fce3af"/>
   </g>
+    </g>
   <g fill="none" stroke="#e3ad9c" stroke-width="1" opacity=".38">
     <path d="M92 370h113m227 0h112m-371-150v31m-15-15h30m265 28v28m-14-14h28"/>
     <circle cx="171" cy="236" r="12"/>
@@ -514,14 +519,18 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <circle cx="83" cy="227" r="2.5" opacity=".7"/>
     <circle cx="513" cy="297" r="2.5" opacity=".7"/>
   </g>
-  <g class="growth-wings" data-reveal="wings">
-    <use href="#story-wing-left"/>
-    <use href="#story-wing-left" transform="translate(640 0) scale(-1 1)"/>
+  <g data-reveal="wings">
+    <g class="growth-butterfly-motion" data-growth-part="">
+      <g class="growth-wings">
+    <g class="growth-wing growth-wing--left" data-growth-part=""><use href="#story-wing-left"/></g>
+    <g class="growth-wing growth-wing--right" data-growth-part=""><use href="#story-wing-left" transform="translate(640 0) scale(-1 1)"/></g>
   </g>
   <g stroke="#ffe3a0" stroke-linecap="round">
     <path d="M318 191q-4-21-18-29m22 29q4-21 18-29" fill="none" stroke-width="1.9"/>
     <ellipse cx="320" cy="222" rx="7.5" ry="36" fill="#263b47" stroke-width="1.7"/>
     <circle cx="320" cy="187" r="7" fill="#f7cb67" stroke-width="1.2"/>
+  </g>
+    </g>
   </g>
   <g transform="translate(486 292) rotate(13) scale(2.5)" fill="none" stroke="#f1cb78" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round" opacity=".8">
     <!-- Flower outline from the toolkit's ui-flower-2.svg by Lucide contributors. -->

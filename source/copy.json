@@ -243,7 +243,10 @@
       "A carved flower bowl with blue decorative crystals",
       "Curved salt lamp glowing against a simple backdrop"
     ],
-    "lampChoosePhoto": "Choose a photo"
+    "lampChoosePhoto": "Choose a photo",
+    "growthMotionPause": "Pause animation",
+    "growthMotionPlay": "Play animation",
+    "growthMotionReduced": "Motion reduced"
   },
   "pt": {
     "skip": "Pular para o conteúdo",
@@ -489,7 +492,10 @@
       "Tigela em forma de flor com cristais decorativos azuis",
       "Luminária curva de sal iluminada sobre fundo simples"
     ],
-    "lampChoosePhoto": "Escolha uma foto"
+    "lampChoosePhoto": "Escolha uma foto",
+    "growthMotionPause": "Pausar animação",
+    "growthMotionPlay": "Reproduzir animação",
+    "growthMotionReduced": "Movimento reduzido"
   },
   "ar": {
     "skip": "انتقل للمحتوى",
@@ -735,6 +741,9 @@
       "طبق على شكل وردة ببلورات زرقاء للزينة",
       "أباجورة ملح منحنية ومنوّرة قدام خلفية بسيطة"
     ],
-    "lampChoosePhoto": "اختار صورة"
+    "lampChoosePhoto": "اختار صورة",
+    "growthMotionPause": "إيقاف الحركة",
+    "growthMotionPlay": "تشغيل الحركة",
+    "growthMotionReduced": "الحركة مخفّضة"
   }
 }

@@ -10,6 +10,10 @@ const scrollAnimations = new Set();
 const revealElements = [...document.querySelectorAll('[data-reveal]')];
 const progressBar = document.querySelector('.reading-progress');
 const growthStages = document.querySelector('.growth-stages');
+const growthScenes = [...document.querySelectorAll('.growth-scene')];
+const visibleGrowthScenes = new Set();
+const growthMotionButton = document.querySelector('[data-growth-motion]');
+let growthMotionPaused = false;
 let currentLanguage = 'en';
 let scrollFramePending = false;
 const panelAnimations = new WeakMap();
@@ -85,6 +89,17 @@ function finishMotionAt(target) {
   });
 }
 
+function updateGrowthMotion() {
+  const canMove = !growthMotionPaused && !reducedMotion.matches && !document.hidden;
+  growthScenes.forEach(scene => scene.classList.toggle('is-moving', canMove && visibleGrowthScenes.has(scene)));
+  if (growthMotionButton) {
+    growthMotionButton.hidden = !('IntersectionObserver' in window);
+    growthMotionButton.disabled = reducedMotion.matches;
+    const label = reducedMotion.matches ? 'growthMotionReduced' : growthMotionPaused ? 'growthMotionPlay' : 'growthMotionPause';
+    growthMotionButton.textContent = copy[currentLanguage][label];
+  }
+}
+
 function setLanguage(lang) {
   currentLanguage = Object.hasOwn(copy, lang) ? lang : 'en';
   const text = copy[currentLanguage];
@@ -99,6 +114,7 @@ function setLanguage(lang) {
   document.querySelector('meta[property="og:title"]').content = text.pageTitle;
   document.querySelector('meta[property="og:description"]').content = text.metaDescription;
   try { localStorage.setItem('eeco-language', currentLanguage); } catch (_) { /* Language also works without storage. */ }
+  updateGrowthMotion();
   queueScrollUpdate();
 }
 
@@ -200,6 +216,7 @@ reducedMotion.addEventListener('change', event => {
     revealObserver?.disconnect();
     revealElements.forEach(element => { element.dataset.revealed = 'true'; });
   }
+  updateGrowthMotion();
   queueScrollUpdate();
 });
 document.addEventListener('focusin', event => finishMotionAt(event.target));
@@ -237,6 +254,23 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
   });
 } else {
   revealElements.forEach(element => { element.dataset.revealed = 'true'; });
+}
+
+// Creature motion continues while its illustration is visible, independently of scroll entrances.
+growthMotionButton?.addEventListener('click', () => {
+  growthMotionPaused = !growthMotionPaused;
+  updateGrowthMotion();
+});
+if ('IntersectionObserver' in window) {
+  const growthObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const scene = entry.target.closest('.growth-scene');
+      if (entry.isIntersecting && entry.intersectionRatio > .05) visibleGrowthScenes.add(scene);
+      else visibleGrowthScenes.delete(scene);
+    });
+    updateGrowthMotion();
+  }, {threshold: [0, .05]});
+  growthScenes.forEach(scene => growthObserver.observe(scene.querySelector('.growth-visual')));
 }
 
 // Native dialogs provide keyboard dismissal, focus containment and focus return.
@@ -345,6 +379,7 @@ document.addEventListener('visibilitychange', () => {
     const bounds = heroVisual.getBoundingClientRect();
     heroVisual.classList.toggle('is-visible', bounds.bottom > 0 && bounds.top < window.innerHeight);
   }
+  updateGrowthMotion();
 });
 
 // Native touch scrolling and mouse dragging share one scroll-snap gallery.

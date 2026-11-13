@@ -535,3 +535,28 @@ dialog[data-closing=true]::backdrop{animation:eeco-backdrop-out 150ms ease-in bo
   :is(.button,.project,.service-card,.service-tabs button,.lamp-contact,.lamp-arrow,.lamp-arrow svg,.lamp-thumb,.dialog-close,.service-card svg,.service-plus,.project-purpose>span:last-child,.lamp-contact>span:last-child){translate:none!important;scale:none!important;rotate:none!important}
   .project:hover,.button:hover,.lamp-contact:hover,.project:hover .project-logo img,.project:hover .carmen-cover-main{transform:none}
 }
+
+/* Living process illustrations. Only visible artwork runs; text and layout remain still. */
+.growth-motion-toggle{display:inline-flex;align-items:center;min-height:44px;margin-top:22px;padding:9px 17px;border:1px solid #fffff04d;border-radius:12px;background:transparent;color:var(--alabaster);font-size:12px;font-weight:700;line-height:1.5;transition:background 200ms,border-color 200ms}
+.growth-motion-toggle:hover:not(:disabled){background:#fffff00c;border-color:var(--sun)}
+.growth-motion-toggle:disabled{opacity:.65}
+.growth-scene{--growth-play-state:paused}
+.growth-scene.is-moving{--growth-play-state:running}
+@media(prefers-reduced-motion:no-preference){
+  .growth-caterpillar-motion{transform-box:view-box;transform-origin:320px 220px;animation:eeco-caterpillar-creep 4.6s ease-in-out infinite}
+  .growth-caterpillar-segment{animation:eeco-caterpillar-wave 2.4s ease-in-out infinite;animation-delay:calc(var(--segment) * -.22s)}
+  .growth-cocoon-motion{transform-box:view-box;transform-origin:329px 86px;animation:eeco-cocoon-sway 5.2s cubic-bezier(.45,0,.55,1) infinite}
+  .growth-butterfly-motion{transform-box:view-box;transform-origin:320px 222px;animation:eeco-butterfly-hover 5.6s ease-in-out infinite}
+  .growth-wing{transform-box:view-box;transform-origin:320px 222px;animation:eeco-butterfly-flap 2.8s cubic-bezier(.45,0,.55,1) infinite;--wing-angle:-2deg}
+  .growth-wing--right{--wing-angle:2deg}
+  .growth-visual [data-growth-part]{animation-play-state:var(--growth-play-state)}
+}
+@keyframes eeco-caterpillar-creep{
+  0%,100%{transform:translate(-6px,3px) rotate(-.6deg)}
+  30%{transform:translate(0,-1px) rotate(0deg) scaleX(.97)}
+  55%,65%{transform:translate(7px,-4px) rotate(.6deg)}
+}
+@keyframes eeco-caterpillar-wave{0%,60%,100%{translate:0 0}30%{translate:1px -3px}}
+@keyframes eeco-cocoon-sway{0%,100%{transform:rotate(-3.2deg)}50%{transform:rotate(3.2deg)}}
+@keyframes eeco-butterfly-hover{0%,100%{transform:translate(-3px,3px) rotate(-1deg)}50%{transform:translate(3px,-7px) rotate(1deg)}}
+@keyframes eeco-butterfly-flap{0%,100%{transform:scaleX(1) rotate(0deg)}45%,55%{transform:scaleX(.66) rotate(var(--wing-angle))}}
