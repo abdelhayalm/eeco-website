@@ -59,3 +59,11 @@ The supplied photos are optimized as WebP files in `assets/carmen/`, with small 
 Both `/recycla/` and `/Recycla/` open the Recycla page. Download buttons serve the signed APK directly from `/recycla/Recycla-Android.apk?v=0.5.0`. The version query avoids reusing an older cached APK. Source and distribution copies contain the same signed bytes.
 
 The signed release and public verification metadata are retained in [Recycla-App releases/v0.5.0](https://github.com/abdelhayalm/Recycla-App/tree/main/releases/v0.5.0). Signing secrets are kept outside both repositories. Versions up to 0.4.0 have a different signing identity; the page explains the required fresh installation and loss of old local progress.
+
+## eeco materiais video enquiry
+
+The eeco materiais card retains the original eeco logo mask, rounded brand type and pale yellow (#FFFF98). Its native dialog places the supplied 33-second promotional video on the left and the existing enquiry form on the right. Narrow screens stack the video above the form. The MP4 retains its original H.264/AAC streams; fast-start metadata enables progressive playback. It is requested on opening, with preload disabled on the page.
+
+Opening the card requests playback with sound within the visitor’s click gesture. Native playback, volume and fullscreen controls remain available, and clicking the picture toggles play/pause. A translated play button appears if the browser blocks playback. Closing the dialog or hiding the browser tab pauses the video; closing resets it for the next opening. Browsers still control whether sound playback is permitted. The materials form and WhatsApp request remain unchanged except for the Portuguese brand name.
+
+The materials card and enquiry dialog use the owner-supplied transparent `assets/eeco-materiais-logo.png` lockup unchanged.

@@ -241,7 +241,10 @@
       "A carved flower bowl with blue decorative crystals",
       "Curved salt lamp glowing against a simple backdrop"
     ],
-    "lampChoosePhoto": "Choose a photo"
+    "lampChoosePhoto": "Choose a photo",
+    "materialsVideoLabel": "eeco materiais promotional video",
+    "materialsVideoPlay": "Play video with sound",
+    "materialsVideoHint": "Click the video to pause or play. You can also use the video controls."
   },
   "pt": {
     "skip": "Pular para o conteúdo",
@@ -485,7 +488,10 @@
       "Tigela em forma de flor com cristais decorativos azuis",
       "Luminária curva de sal iluminada sobre fundo simples"
     ],
-    "lampChoosePhoto": "Escolha uma foto"
+    "lampChoosePhoto": "Escolha uma foto",
+    "materialsVideoLabel": "Vídeo de apresentação da eeco materiais",
+    "materialsVideoPlay": "Reproduzir vídeo com som",
+    "materialsVideoHint": "Clique no vídeo para pausar ou reproduzir. Você também pode usar os controles do vídeo."
   },
   "ar": {
     "skip": "انتقل للمحتوى",
@@ -729,6 +735,9 @@
       "طبق على شكل وردة ببلورات زرقاء للزينة",
       "أباجورة ملح منحنية ومنوّرة قدام خلفية بسيطة"
     ],
-    "lampChoosePhoto": "اختار صورة"
+    "lampChoosePhoto": "اختار صورة",
+    "materialsVideoLabel": "فيديو تعريفي بإيكو materiais",
+    "materialsVideoPlay": "شغّل الفيديو بالصوت",
+    "materialsVideoHint": "اضغط على الفيديو عشان توقفه أو تشغّله، أو استخدم أدوات التحكم في الفيديو."
   }
 }

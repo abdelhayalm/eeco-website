@@ -264,6 +264,8 @@ if ('IntersectionObserver' in window) {
 // Native dialogs provide keyboard dismissal, focus containment and focus return.
 const serviceDialog = document.getElementById('service-dialog');
 const materialsDialog = document.getElementById('materials-dialog');
+const materialsVideo = document.getElementById('materials-video');
+const materialsVideoPlay = document.getElementById('materials-video-play');
 const carmenDialog = document.getElementById('carmen-dialog');
 function openDialog(dialog) {
   if (dialog.open) return;
@@ -272,6 +274,7 @@ function openDialog(dialog) {
 }
 function closeDialog(dialog) {
   if (!dialog.open || dialog.dataset.closing === 'true') return;
+  if (dialog === materialsDialog) materialsVideo.pause();
   const animation = playMotion(dialog, [{opacity: 1, translate: '0 0'}, {opacity: 0, translate: '0 8px'}], {duration: 150, easing: 'ease-in', fill: 'forwards'}, 'eeco-dialog-close');
   if (!animation) {
     dialog.close();
@@ -302,7 +305,38 @@ document.querySelectorAll('[data-quick]').forEach(button => button.addEventListe
   updateQuickCard();
   openDialog(serviceDialog);
 }));
-document.querySelectorAll('[data-open-materials]').forEach(button => button.addEventListener('click', () => openDialog(materialsDialog)));
+function playMaterialsVideo() {
+  materialsVideoPlay.hidden = true;
+  const attempt = materialsVideo.play();
+  if (attempt) attempt.catch(() => {
+    if (materialsDialog.open && !materialsVideo.error) materialsVideoPlay.hidden = false;
+  });
+}
+document.querySelectorAll('[data-open-materials]').forEach(button => button.addEventListener('click', () => {
+  openDialog(materialsDialog);
+  materialsVideo.currentTime = 0;
+  materialsVideo.muted = false;
+  materialsVideo.volume = 1;
+  playMaterialsVideo();
+}));
+materialsVideoPlay.addEventListener('click', playMaterialsVideo);
+materialsVideo.addEventListener('play', () => { materialsVideoPlay.hidden = true; });
+materialsVideo.addEventListener('pause', () => { materialsVideoPlay.hidden = false; });
+materialsVideo.addEventListener('click', event => {
+  // Leave the native control bar and keyboard activation to the browser.
+  if (!event.detail || event.clientY >= materialsVideo.getBoundingClientRect().bottom - 56) return;
+  event.preventDefault();
+  if (materialsVideo.paused) playMaterialsVideo();
+  else materialsVideo.pause();
+});
+materialsDialog.addEventListener('close', () => {
+  materialsVideo.pause();
+  materialsVideo.currentTime = 0;
+  materialsVideoPlay.hidden = true;
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) materialsVideo.pause();
+});
 document.querySelectorAll('[data-close-dialog]').forEach(button => button.addEventListener('click', () => closeDialog(button.closest('dialog'))));
 [serviceDialog, materialsDialog, carmenDialog].forEach(dialog => {
   dialog.addEventListener('cancel', event => {
@@ -325,7 +359,7 @@ function updateRequest() {
     const value = control.tagName === 'SELECT' && control.value ? control.selectedOptions[0].textContent : String(data.get(name) || '').trim();
     return value ? words[key].replace(' *','') + ': ' + value : '';
   }).filter(Boolean);
-  materialForm.dataset.whatsapp = whatsappUrl('eeco materials\n\n' + lines.join('\n'));
+  materialForm.dataset.whatsapp = whatsappUrl('eeco materiais\n\n' + lines.join('\n'));
 }
 materialForm.addEventListener('input', updateRequest);
 materialForm.addEventListener('change', updateRequest);
